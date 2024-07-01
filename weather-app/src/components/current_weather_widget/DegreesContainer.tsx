@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Degrees } from "../../types/enums/Degrees";
 import { formatDegrees } from "../../utils/formatDegrees";
@@ -26,12 +26,33 @@ export const DegreesContainer = ({
   icon,
   alt,
 }: DegreesContainerProps): ReactElement => {
+  const [smallStyle, setSmallStyle] = useState({
+    fontSize: "70",
+    marginTop: "-20px",
+    marginBottom: "-20px",
+  });
+
+  const updateStyle = () => {
+    const vw = window.innerWidth * 0.042;
+    const vh = window.innerHeight * 0.042;
+    const responsiveSize = vh + vw;
+    setSmallStyle({
+      fontSize: responsiveSize + "px",
+      marginTop: "-20px",
+      marginBottom: "-20px",
+    });
+  };
+
+  useEffect(() => {
+    updateStyle();
+    window.addEventListener("resize", updateStyle);
+    return () => window.removeEventListener("resize", updateStyle);
+  }, []);
+
   return (
     <StyledContainer>
       <img src={icon} alt={alt} height={60} width={60}></img>
-      <p style={{ fontSize: 100, marginTop: "-20px", marginBottom: "-20px" }}>
-        {formatDegrees(temperature, Degrees.CELSIUS)}
-      </p>
+      <p style={smallStyle}>{formatDegrees(temperature, Degrees.CELSIUS)}</p>
     </StyledContainer>
   );
 };

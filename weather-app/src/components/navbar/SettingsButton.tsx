@@ -21,9 +21,7 @@ export const SettingsButton = (): ReactElement => {
         await getWeatherData();
       }}
     >
-      <AiOutlineSetting
-        style={{ width: 40, height: 35, color: "#bbd4ea", paddingRight: 10 }}
-      />
+      <AiOutlineSetting style={{ width: 40, height: 35, paddingRight: 10 }} />
     </StyledButton>
   );
 };

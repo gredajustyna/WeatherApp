@@ -54,11 +54,11 @@ export const CurrentWeatherContainer = (): ReactElement => {
         lastUpdated={weather.lastUpdated}
       />
       <DegreesContainer
-        temperature={weather.degrees}
-        icon={weather.icon}
-        alt={weather.description}
+        temperature={weather.weather.degrees}
+        icon={weather.weather.icon}
+        alt={weather.weather.description}
       />
-      <DescriptionText description={weather.description} />
+      <DescriptionText description={weather.weather.description} />
     </StyledContainer>
   );
 };

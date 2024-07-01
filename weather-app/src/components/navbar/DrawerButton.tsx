@@ -11,7 +11,6 @@ const StyledButton = styled.button`
   border-radius: 4px;
   width: 60;
   height: 40;
-  border-color: #bbd4ea;
 `;
 
 export const DrawerButton = ({ setIsOpen }: DrawerOpenProps): ReactElement => {
@@ -20,7 +19,7 @@ export const DrawerButton = ({ setIsOpen }: DrawerOpenProps): ReactElement => {
   };
   return (
     <StyledButton onClick={toggleDrawer}>
-      <AiOutlineMenu style={{ width: 40, height: 35, color: "#bbd4ea" }} />
+      <AiOutlineMenu style={{ width: 40, height: 35 }} />
     </StyledButton>
   );
 };

@@ -1,13 +1,8 @@
 import { WeatherLocation } from "./Location";
+import { Weather } from "./Weather";
 
 export interface CurrentWeather {
-  degrees: number;
-  feelsLike: number;
-  cloudPercentage: number;
-  humidityPercentage: number;
-  uvIndex: number;
+  weather: Weather;
   lastUpdated: string;
-  description: string;
-  icon: string;
   location: WeatherLocation;
 }

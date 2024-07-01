@@ -5,6 +5,7 @@ import "react-modern-drawer/dist/index.css";
 import { SettingsButton } from "./SettingsButton";
 import { DrawerButton } from "./DrawerButton";
 import { colors } from "../../consts/colors";
+import { LocationButton } from "./LocationButton";
 
 const NavbarContainer = styled.div`
   background-color: ${colors.sky_blue};
@@ -34,15 +35,18 @@ export const Navbar = ({ title }: NavbarProps): ReactElement => {
     <>
       <NavbarContainer>
         <DrawerButton setIsOpen={setIsOpen} isOpen={isOpen} />
-        <h1 style={{ color: "#bbd4ea" }}>{title}</h1>
-        <SettingsButton />
+        <h1>{title}</h1>
+        <div>
+          <LocationButton />
+          <SettingsButton />
+        </div>
       </NavbarContainer>
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
         direction="left"
         size="20vw"
-        style={{ paddingTop: "50px" }}
+        style={{ paddingTop: "60px" }}
       >
         <div>Hello World</div>
       </Drawer>

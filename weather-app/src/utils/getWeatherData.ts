@@ -14,15 +14,18 @@ export const getWeatherData = async (): Promise<CurrentWeather> => {
     );
 
     const json = await response.json();
+    console.log(json);
     const currentWeather: CurrentWeather = {
-      degrees: json.current.temp_c,
-      feelsLike: json.current.feelslike_c,
-      cloudPercentage: json.current.cloud,
-      humidityPercentage: json.current.humidity,
-      uvIndex: json.current.uv,
+      weather: {
+        degrees: json.current.temp_c,
+        feelsLike: json.current.feelslike_c,
+        cloudPercentage: json.current.cloud,
+        humidityPercentage: json.current.humidity,
+        uvIndex: json.current.uv,
+        description: json.current.condition.text,
+        icon: json.current.condition.icon,
+      },
       lastUpdated: json.current.last_updated,
-      description: json.current.condition.text,
-      icon: json.current.condition.icon,
       location: json.location,
     };
 
