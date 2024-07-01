@@ -1,4 +1,6 @@
-export const geWeatherDataFromApi = async () => {
+import { CurrentWeather } from "../types/CurrentWeather";
+
+export const getWeatherData = async (): Promise<CurrentWeather> => {
   try {
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
@@ -10,9 +12,24 @@ export const geWeatherDataFromApi = async () => {
         },
       }
     );
+
     const json = await response.json();
-    console.log(json);
+    const currentWeather: CurrentWeather = {
+      degrees: json.current.temp_c,
+      feelsLike: json.current.feelslike_c,
+      cloudPercentage: json.current.cloud,
+      humidityPercentage: json.current.humidity,
+      uvIndex: json.current.uv,
+      lastUpdated: json.current.last_updated,
+      description: json.current.condition.text,
+      icon: json.current.condition.icon,
+      location: json.location,
+    };
+
+    console.log(currentWeather);
+    return currentWeather;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };

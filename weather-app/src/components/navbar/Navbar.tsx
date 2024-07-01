@@ -2,12 +2,13 @@ import { ReactElement, useState } from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { SettingsButton } from "./navbar/SettingsButton";
-import { DrawerButton } from "./navbar/DrawerButton";
+import { SettingsButton } from "./SettingsButton";
+import { DrawerButton } from "./DrawerButton";
+import { colors } from "../../consts/colors";
 
 const NavbarContainer = styled.div`
-  background-color: aquamarine;
-  height: 50px;
+  background-color: ${colors.sky_blue};
+  height: 60px;
   width: 100vw;
   position: absolute;
   top: 0;

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
 import styled from "styled-components";
-import { geWeatherDataFromApi } from "../../utils/getWeatherData";
+import { getWeatherData } from "../../utils/getWeatherData";
 
 const StyledButton = styled.button`
   background-color: transparent;
@@ -18,7 +18,7 @@ export const SettingsButton = (): ReactElement => {
   return (
     <StyledButton
       onClick={async () => {
-        await geWeatherDataFromApi();
+        await getWeatherData();
       }}
     >
       <AiOutlineSetting
