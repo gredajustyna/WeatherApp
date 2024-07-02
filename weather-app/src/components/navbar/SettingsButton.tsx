@@ -1,27 +1,16 @@
 import { ReactElement } from "react";
-import { AiOutlineSetting } from "react-icons/ai";
-import styled from "styled-components";
+import { AiOutlineSearch } from "react-icons/ai";
 import { getWeatherData } from "../../utils/getWeatherData";
+import { NavigationButton } from "../shared/NavigationButton";
 
-const StyledButton = styled.button`
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 4px;
-  width: 60;
-  height: 40;
-  border: none;
-`;
-
-export const SettingsButton = (): ReactElement => {
+export const SearchButton = (): ReactElement => {
   return (
-    <StyledButton
+    <NavigationButton
       onClick={async () => {
         await getWeatherData();
       }}
     >
-      <AiOutlineSetting style={{ width: 40, height: 35, paddingRight: 10 }} />
-    </StyledButton>
+      <AiOutlineSearch style={{ width: 40, height: 35, paddingRight: 10 }} />
+    </NavigationButton>
   );
 };

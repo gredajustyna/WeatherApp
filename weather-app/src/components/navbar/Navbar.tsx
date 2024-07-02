@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { SettingsButton } from "./SettingsButton";
+import { SearchButton } from "./SettingsButton";
 import { DrawerButton } from "./DrawerButton";
 import { colors } from "../../consts/colors";
 import { LocationButton } from "./LocationButton";
@@ -37,15 +37,15 @@ export const Navbar = ({ title }: NavbarProps): ReactElement => {
         <DrawerButton setIsOpen={setIsOpen} isOpen={isOpen} />
         <h1>{title}</h1>
         <div>
+          <SearchButton />
           <LocationButton />
-          <SettingsButton />
         </div>
       </NavbarContainer>
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
         direction="left"
-        size="20vw"
+        size="350px"
         style={{ paddingTop: "60px" }}
       >
         <div>Hello World</div>
