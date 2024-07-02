@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
-import { ReactElement, useEffect, useState } from "react";
-import { getWeatherForecast } from "../../utils/getWeatherForecast";
-import { Forecast } from "../../types/Forecast";
+import { ReactElement } from "react";
 import { HourContainer } from "./HourContainer";
 import { Line, LineChart } from "recharts";
+import { useForecastData } from "../../hooks/useForecastData";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -35,25 +34,7 @@ const ChartContainer = styled.div`
 `;
 
 export const ForecastContainer = (): ReactElement => {
-  const [forecast, setForecast] = useState<Forecast | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await getWeatherForecast();
-        console.log(data);
-        setForecast(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { forecast, loading } = useForecastData();
 
   if (loading || !forecast) return <div>Loading...</div>;
 
