@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
 `;
 
 interface NumberContainerProps {
-  index: number;
+  index: number | string;
 }
 
 export const NumberContainer = ({
