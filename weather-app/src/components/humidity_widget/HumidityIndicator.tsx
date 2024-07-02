@@ -14,7 +14,7 @@ const WaterValue = styled.div<HumidityIndicatorProps>`
   border-bottom-left-radius: 10px;
   height: ${({ value }) => (value / 100) * 15}vh;
   background: linear-gradient(to top, #2326bb, #73c8db, #ffffff);
-  z-index: 200;
+  z-index: 2;
   width: 100%;
   bottom: 0;
   border-top-right-radius: ${({ value }) => (value > 97 ? "10px" : "0px")};
