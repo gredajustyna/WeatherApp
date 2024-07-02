@@ -1,7 +1,8 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
 import { formatDegrees } from "../../utils/formatDegrees";
-import { Degrees } from "../../types/enums/Degrees";
+import { useSelector } from "react-redux";
+import { temperatureScaleSelector } from "../../store/settings/settings.selector";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -23,9 +24,10 @@ export const HourContainer = ({
   rain,
   icon,
 }: HourContainerProps): ReactElement => {
+  const temperatureScale = useSelector(temperatureScaleSelector);
   return (
     <StyledContainer>
-      <div>{formatDegrees(temperature, Degrees.CELSIUS)}</div>
+      <div>{formatDegrees(temperature, temperatureScale)}</div>
       <div>
         <img src={icon} alt=""></img>
         <div>{hour}</div>

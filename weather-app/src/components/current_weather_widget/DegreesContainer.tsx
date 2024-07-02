@@ -1,8 +1,9 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
-import { Degrees } from "../../types/enums/Degrees";
 import { formatDegrees } from "../../utils/formatDegrees";
 import { ResponsiveNumberContainer } from "../shared/ResponsiveNumberContainer";
+import { useSelector } from "react-redux";
+import { temperatureScaleSelector } from "../../store/settings/settings.selector";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -27,11 +28,12 @@ export const DegreesContainer = ({
   icon,
   alt,
 }: DegreesContainerProps): ReactElement => {
+  const temperatureScale = useSelector(temperatureScaleSelector);
   return (
     <StyledContainer>
       <img src={icon} alt={alt} height={60} width={60}></img>
       <ResponsiveNumberContainer
-        value={formatDegrees(temperature, Degrees.CELSIUS)}
+        value={formatDegrees(temperature, temperatureScale)}
       />
     </StyledContainer>
   );

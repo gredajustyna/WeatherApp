@@ -7,6 +7,7 @@ import { NumberContainer } from "./NumberContainer";
 import { GradientContainer } from "./GradientContainer";
 import { TitleComponent } from "../shared/ContainerTitle";
 import { mapUVIndexToLabel } from "../../utils/mapUVIndexToLabel";
+import { Degrees } from "../../types/enums/Degrees";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -46,7 +47,7 @@ export const UVIndexContainer = (): ReactElement => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await getWeatherData();
+        const data = await getWeatherData(Degrees.CELSIUS);
         console.log(data);
         setWeather(data);
       } catch (err) {

@@ -1,6 +1,9 @@
 import { CurrentWeather } from "../types/CurrentWeather";
+import { Degrees } from "../types/enums/Degrees";
 
-export const getWeatherData = async (): Promise<CurrentWeather> => {
+export const getWeatherData = async (
+  scale: Degrees
+): Promise<CurrentWeather> => {
   try {
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
@@ -17,8 +20,12 @@ export const getWeatherData = async (): Promise<CurrentWeather> => {
     console.log(json);
     const currentWeather: CurrentWeather = {
       weather: {
-        degrees: json.current.temp_c,
-        feelsLike: json.current.feelslike_c,
+        degrees:
+          scale === Degrees.CELSIUS ? json.current.temp_c : json.current.temp_f,
+        feelsLike:
+          scale === Degrees.CELSIUS
+            ? json.current.feelslike_c
+            : json.current.feelslike_f,
         cloudPercentage: json.current.cloud,
         humidityPercentage: json.current.humidity,
         uvIndex: json.current.uv,

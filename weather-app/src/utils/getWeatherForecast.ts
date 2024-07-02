@@ -1,7 +1,8 @@
+import { Degrees } from "../types/enums/Degrees";
 import { Forecast } from "../types/Forecast";
 import { FutureWeather } from "../types/Weather";
 
-export const getWeatherForecast = async (): Promise<Forecast> => {
+export const getWeatherForecast = async (scale: Degrees): Promise<Forecast> => {
   try {
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
@@ -20,7 +21,10 @@ export const getWeatherForecast = async (): Promise<Forecast> => {
       futureWeather: [
         ...json.forecast.forecastday[0].hour.map(
           (hourlyWeather: any): FutureWeather => ({
-            degrees: hourlyWeather.temp_c,
+            degrees:
+              scale === Degrees.CELSIUS
+                ? hourlyWeather.temp_c
+                : hourlyWeather.temp_f,
             feelsLike: hourlyWeather.feelslike_c,
             cloudPercentage: hourlyWeather.cloud,
             humidityPercentage: hourlyWeather.humidity,
@@ -33,7 +37,10 @@ export const getWeatherForecast = async (): Promise<Forecast> => {
         ),
         ...json.forecast.forecastday[1].hour.map(
           (hourlyWeather: any): FutureWeather => ({
-            degrees: hourlyWeather.temp_c,
+            degrees:
+              scale === Degrees.CELSIUS
+                ? hourlyWeather.temp_c
+                : hourlyWeather.temp_f,
             feelsLike: hourlyWeather.feelslike_c,
             cloudPercentage: hourlyWeather.cloud,
             humidityPercentage: hourlyWeather.humidity,
