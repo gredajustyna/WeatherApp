@@ -12,7 +12,7 @@ import { WiDaySunny } from "react-icons/wi";
 const StyledContainer = styled.div`
   border-radius: 12px;
   height: 20vh;
-  width: 34vw;
+  width: 25vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

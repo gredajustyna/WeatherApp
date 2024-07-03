@@ -24,6 +24,16 @@ i18n.use(initReactI18next).init({
           veryHigh: "Very High",
           extreme: "Extreme",
         },
+        feelsLike: {
+          title: "Feels like",
+          feelsLike: {
+            veryLow: "Much colder than the real temperature",
+            low: "Colder than the real temperature",
+            same: "Same as the real temperature",
+            high: "Warmer than the real temperature",
+            veryHigh: "Much warmer than the real temperature",
+          },
+        },
       },
     },
     pl: {
@@ -41,6 +51,16 @@ i18n.use(initReactI18next).init({
           high: "Wysoki",
           veryHigh: "Bardzo wysoki",
           extreme: "Ekstremalny",
+        },
+        feelsLike: {
+          title: "Temperatura odczuwalna",
+          feelsLike: {
+            veryLow: "Dużo chłodniej niż temperatura rzeczywista",
+            low: "Chłodniej niż temperatura rzeczywista",
+            same: "Tak samo jak temperatura rzeczywista",
+            high: "Cieplej niż temperatura rzeczywista",
+            veryHigh: "Dużo cieplej niż temperatura rzeczywista",
+          },
         },
       },
     },

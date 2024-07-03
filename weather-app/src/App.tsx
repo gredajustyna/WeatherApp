@@ -11,6 +11,7 @@ import "./assets/fonts/fonts.css";
 import { Overlay } from "./components/shared/Overlay";
 import { WeatherLocation } from "./types/Location";
 import { SearchResultsContainer } from "./components/navbar/search/SearchResultsContainer";
+import { FeelsLikeContainer } from "./components/feels_like_widget/FeelsLikeContainer";
 
 function App() {
   const [isSearching, setIsSearching] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         >
           <UVIndexContainer />
           <HumidityContainer />
+          <FeelsLikeContainer />
         </div>
       </div>
     </Provider>

@@ -10,6 +10,7 @@ const StyledLocationText = styled.div`
 const StyledUpdateText = styled.div`
   font-size: small;
   font-weight: 100;
+  font-family: "Courier New", Courier, monospace;
 `;
 
 const TextContainer = styled.div`
