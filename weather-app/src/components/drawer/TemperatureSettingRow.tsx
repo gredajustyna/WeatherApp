@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { temperatureScaleSelector } from "../../store/settings/settings.selector";
 import { Degrees } from "../../types/enums/Degrees";
 import { setTemperatureScale } from "../../store/settings/settings.actions";
-import { TitleComponent } from "../shared/ContainerTitle";
+import { TitleComponent } from "../shared/TitleComponent";
 import { colors } from "../../consts/colors";
 
 const TemperatureSettingContainer = styled.div`

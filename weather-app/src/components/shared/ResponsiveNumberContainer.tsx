@@ -17,6 +17,7 @@ export const ResponsiveNumberContainer = ({
     fontSize: `${fontSize}`,
     marginTop: `${marginTop}px`,
     marginBottom: `${marginBottom}px`,
+    fontFamily: "skinny",
   });
 
   const updateStyle = () => {
@@ -27,6 +28,7 @@ export const ResponsiveNumberContainer = ({
       fontSize: responsiveSize + "px",
       marginTop: "-20px",
       marginBottom: "-20px",
+      fontFamily: "skinny",
     });
   };
 

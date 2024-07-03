@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
 import styled from "styled-components";
-import { TitleComponent } from "../shared/ContainerTitle";
+import { TitleComponent } from "../shared/TitleComponent";
 import { Language } from "../../types/enums/Language";
 import { Dropdown } from "../shared/dropdown/Dropdown";
 import DropdownItem from "../shared/dropdown/DropdownItem";

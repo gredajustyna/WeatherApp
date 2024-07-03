@@ -7,6 +7,7 @@ import { UVIndexContainer } from "./components/uv_index_widget/UVIndexContainer"
 import { HumidityContainer } from "./components/humidity_widget/HumidityContainer";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import "./assets/fonts/fonts.css";
 
 function App() {
   return (

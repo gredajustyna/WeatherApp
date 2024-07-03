@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { NumberContainer } from "./NumberContainer";
 import { GradientContainer } from "./GradientContainer";
-import { TitleComponent } from "../shared/ContainerTitle";
+import { TitleComponent } from "../shared/TitleComponent";
 import { mapUVIndexToLabelKey } from "../../utils/mapUVIndexToLabelKey";
 import { useWeatherData } from "../../hooks/useWeatherData";
 import { useTranslation } from "react-i18next";
+import { WiDaySunny } from "react-icons/wi";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -23,14 +24,6 @@ const StyledContainer = styled.div`
   padding-left: 10px;
   padding-right: 10px;
 `;
-
-const TitleContainer = styled.div`
-  width: 100%;
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-`;
-
 const ValueContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -45,9 +38,10 @@ export const UVIndexContainer = (): ReactElement => {
 
   return (
     <StyledContainer>
-      <TitleContainer>
-        <TitleComponent value={t("UVIndex.UVIndex")} />
-      </TitleContainer>
+      <TitleComponent
+        value={t("UVIndex.UVIndex")}
+        icon={<WiDaySunny style={{ width: "25px", height: "25px" }} />}
+      />
       <ValueContainer>
         <GradientContainer index={weather.weather.uvIndex} />
         <NumberContainer index={weather.weather.uvIndex} />
