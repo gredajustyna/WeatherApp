@@ -1,15 +1,15 @@
-export const mapUVIndexToLabel = (index: number): string => {
+export const mapUVIndexToLabelKey = (index: number): string => {
   switch (true) {
     case index <= 2:
-      return "Low";
+      return "low";
     case index > 2 && index <= 5:
-      return "Moderate";
+      return "moderate";
     case index > 5 && index <= 7:
-      return "High";
+      return "high";
     case index > 7 && index <= 10:
-      return "Very high";
+      return "veryHigh";
     case index > 10:
-      return "Extreme";
+      return "extreme";
     default:
       return "";
   }

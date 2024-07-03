@@ -4,8 +4,9 @@ import { colors } from "../../consts/colors";
 import { NumberContainer } from "./NumberContainer";
 import { GradientContainer } from "./GradientContainer";
 import { TitleComponent } from "../shared/ContainerTitle";
-import { mapUVIndexToLabel } from "../../utils/mapUVIndexToLabel";
+import { mapUVIndexToLabelKey } from "../../utils/mapUVIndexToLabelKey";
 import { useWeatherData } from "../../hooks/useWeatherData";
+import { useTranslation } from "react-i18next";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -39,18 +40,21 @@ const ValueContainer = styled.div`
 
 export const UVIndexContainer = (): ReactElement => {
   const { weather, loading } = useWeatherData();
+  const { t } = useTranslation();
   if (loading || !weather) return <div>Loading...</div>;
 
   return (
     <StyledContainer>
       <TitleContainer>
-        <TitleComponent value="UV Index" />
+        <TitleComponent value={t("UVIndex.UVIndex")} />
       </TitleContainer>
       <ValueContainer>
         <GradientContainer index={weather.weather.uvIndex} />
         <NumberContainer index={weather.weather.uvIndex} />
       </ValueContainer>
-      <TitleComponent value={mapUVIndexToLabel(weather.weather.uvIndex)} />
+      <TitleComponent
+        value={t(`UVIndex.${mapUVIndexToLabelKey(weather.weather.uvIndex)}`)}
+      />
     </StyledContainer>
   );
 };

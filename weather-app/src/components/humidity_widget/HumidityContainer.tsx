@@ -5,6 +5,7 @@ import { TitleComponent } from "../shared/ContainerTitle";
 import { useWeatherData } from "../../hooks/useWeatherData";
 import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { HumidityIndicator } from "./HumidityIndicator";
+import { useTranslation } from "react-i18next";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -38,13 +39,14 @@ const ValueContainer = styled.div`
 
 export const HumidityContainer = (): ReactElement => {
   const { weather, loading } = useWeatherData();
+  const { t } = useTranslation();
 
   if (loading || !weather) return <div>Loading...</div>;
 
   return (
     <StyledContainer>
       <TitleContainer>
-        <TitleComponent value="Humidity" />
+        <TitleComponent value={t("humidity.humidity")} />
       </TitleContainer>
       <ValueContainer>
         <HumidityIndicator value={weather.weather.humidityPercentage} />

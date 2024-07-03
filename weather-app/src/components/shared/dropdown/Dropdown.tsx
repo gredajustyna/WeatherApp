@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  ReactElement,
-  SetStateAction,
-  useEffect,
-  useRef,
-} from "react";
+import { Dispatch, ReactElement, SetStateAction, useRef } from "react";
 import DropdownButton from "./DropdownButton";
 import DropdownContent from "./DropdownContent";
 
@@ -26,19 +20,6 @@ export const Dropdown = ({
   const toggleDropdown = () => {
     setOpen((open) => !open);
   };
-
-  useEffect(() => {
-    const handler = (event: any) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpen(false);
-      }
-
-      document.addEventListener("click", handler);
-      return () => {
-        document.removeEventListener("click", handler);
-      };
-    };
-  }, [setOpen]);
 
   return (
     <div style={{ position: "relative" }} ref={dropdownRef}>
