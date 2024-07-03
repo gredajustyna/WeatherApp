@@ -1,9 +1,33 @@
 import { ReactElement } from "react";
 import { AiOutlineCompass } from "react-icons/ai";
 import { NavigationButton } from "../shared/NavigationButton";
+import { getQParameterFromPosition } from "../../utils/getQParameterFromPosition";
+import { useDispatch } from "react-redux";
+import { setLocation } from "../../store/settings/settings.actions";
 
-export const LocationButton = (): ReactElement => (
-  <NavigationButton onClick={() => {}}>
-    <AiOutlineCompass style={{ width: 40, height: 35, paddingRight: 10 }} />
-  </NavigationButton>
-);
+export const LocationButton = (): ReactElement => {
+  const dispatch = useDispatch();
+  const handleLocationClick = (): void => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation not supported");
+    }
+  };
+
+  function success(position: any) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const q = getQParameterFromPosition(latitude, longitude);
+    dispatch(setLocation(q));
+  }
+
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+  return (
+    <NavigationButton onClick={handleLocationClick}>
+      <AiOutlineCompass style={{ width: 40, height: 35, paddingRight: 10 }} />
+    </NavigationButton>
+  );
+};

@@ -44,7 +44,7 @@ export const TemperatureSettingRow = (): ReactElement => {
           gap: "5px",
         }}
       >
-        <label>°C</label>
+        <label>°F</label>
         <Toggle
           icons={false}
           style={{ backgroundColor: colors.sky_blue }}
@@ -57,7 +57,7 @@ export const TemperatureSettingRow = (): ReactElement => {
             }
           }}
         />
-        <label>°F</label>
+        <label>°C</label>
       </div>
     </TemperatureSettingContainer>
   );
