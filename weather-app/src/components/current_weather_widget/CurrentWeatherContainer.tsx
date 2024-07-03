@@ -1,13 +1,10 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
-import { getWeatherData } from "../../utils/getWeatherData";
-import { CurrentWeather } from "../../types/CurrentWeather";
 import { colors } from "../../consts/colors";
 import { DegreesContainer } from "./DegreesContainer";
 import { LocationText } from "./LocationText";
 import { DescriptionText } from "./DescriptionText";
-import { useSelector } from "react-redux";
-import { temperatureScaleSelector } from "../../store/settings/settings.selector";
+import { useWeatherData } from "../../hooks/useWeatherData";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -27,26 +24,8 @@ const StyledContainer = styled.div`
 `;
 
 export const CurrentWeatherContainer = (): ReactElement => {
-  const [weather, setWeather] = useState<CurrentWeather | null>(null);
-  const [loading, setLoading] = useState(true);
-  const temperatureScale = useSelector(temperatureScaleSelector);
+  const { weather, loading } = useWeatherData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await getWeatherData(temperatureScale);
-        console.log(data);
-        setWeather(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [temperatureScale]);
   if (loading || !weather) return <div>Loading...</div>;
 
   return (

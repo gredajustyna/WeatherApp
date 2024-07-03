@@ -1,13 +1,11 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
-import { getWeatherData } from "../../utils/getWeatherData";
-import { CurrentWeather } from "../../types/CurrentWeather";
 import { colors } from "../../consts/colors";
 import { NumberContainer } from "./NumberContainer";
 import { GradientContainer } from "./GradientContainer";
 import { TitleComponent } from "../shared/ContainerTitle";
 import { mapUVIndexToLabel } from "../../utils/mapUVIndexToLabel";
-import { Degrees } from "../../types/enums/Degrees";
+import { useWeatherData } from "../../hooks/useWeatherData";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -40,25 +38,7 @@ const ValueContainer = styled.div`
 `;
 
 export const UVIndexContainer = (): ReactElement => {
-  const [weather, setWeather] = useState<CurrentWeather | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await getWeatherData(Degrees.CELSIUS);
-        console.log(data);
-        setWeather(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { weather, loading } = useWeatherData();
   if (loading || !weather) return <div>Loading...</div>;
 
   return (

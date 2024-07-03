@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const StyledLocationText = styled.div`
@@ -26,11 +27,16 @@ export const LocationText = ({
   city,
   country,
   lastUpdated,
-}: LocationElementProps): ReactElement => (
-  <TextContainer>
-    <StyledLocationText>
-      {city}, {country}
-    </StyledLocationText>
-    <StyledUpdateText>Last updated: {lastUpdated}</StyledUpdateText>
-  </TextContainer>
-);
+}: LocationElementProps): ReactElement => {
+  const { t } = useTranslation();
+  return (
+    <TextContainer>
+      <StyledLocationText>
+        {city}, {country}
+      </StyledLocationText>
+      <StyledUpdateText>
+        {t("currentWeather.lastUpdate")} {lastUpdated}
+      </StyledUpdateText>
+    </TextContainer>
+  );
+};

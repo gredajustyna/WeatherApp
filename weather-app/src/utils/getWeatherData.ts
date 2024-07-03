@@ -1,13 +1,17 @@
 import { CurrentWeather } from "../types/CurrentWeather";
 import { Degrees } from "../types/enums/Degrees";
+import { Language } from "../types/enums/Language";
+import { getLanguageSymbol } from "./getLanguageSymbol";
 
 export const getWeatherData = async (
-  scale: Degrees
+  scale: Degrees,
+  language: Language
 ): Promise<CurrentWeather> => {
   try {
+    const languageSymbol = getLanguageSymbol(language);
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?q=London&key=${apiKey}`,
+      `https://api.weatherapi.com/v1/current.json?q=London&lang=${languageSymbol}&key=${apiKey}`,
       {
         headers: {
           Accept: "application/json",

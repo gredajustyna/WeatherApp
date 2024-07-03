@@ -7,6 +7,7 @@ import { DrawerButton } from "./DrawerButton";
 import { colors } from "../../consts/colors";
 import { LocationButton } from "./LocationButton";
 import { TemperatureSettingRow } from "../drawer/TemperatureSettingRow";
+import { LanguageSettingRow } from "../drawer/LanguageSettingRow";
 
 const NavbarContainer = styled.div`
   background-color: ${colors.sky_blue};
@@ -49,7 +50,10 @@ export const Navbar = ({ title }: NavbarProps): ReactElement => {
         size="350px"
         style={{ paddingTop: "60px" }}
       >
-        <TemperatureSettingRow />
+        <div style={{ gap: "50px" }}>
+          <TemperatureSettingRow />
+          <LanguageSettingRow />
+        </div>
       </Drawer>
     </>
   );
