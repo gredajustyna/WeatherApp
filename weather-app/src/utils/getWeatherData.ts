@@ -5,13 +5,14 @@ import { getLanguageSymbol } from "./getLanguageSymbol";
 
 export const getWeatherData = async (
   scale: Degrees,
-  language: Language
+  language: Language,
+  location: string
 ): Promise<CurrentWeather> => {
   try {
     const languageSymbol = getLanguageSymbol(language);
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?q=London&lang=${languageSymbol}&key=${apiKey}`,
+      `https://api.weatherapi.com/v1/current.json?q=${location}&lang=${languageSymbol}&key=${apiKey}`,
       {
         headers: {
           Accept: "application/json",

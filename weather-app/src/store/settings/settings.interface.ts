@@ -4,4 +4,5 @@ import { Language } from "../../types/enums/Language";
 export interface SettingsState {
   temperatureScale: Degrees;
   language: Language;
+  location: string;
 }

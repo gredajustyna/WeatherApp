@@ -1,3 +1,4 @@
 import { settingsSlice } from "./settings.slice";
 
-export const { setTemperatureScale, setLanguage } = settingsSlice.actions;
+export const { setTemperatureScale, setLanguage, setLocation } =
+  settingsSlice.actions;

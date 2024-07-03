@@ -2,11 +2,14 @@ import { Degrees } from "../types/enums/Degrees";
 import { Forecast } from "../types/Forecast";
 import { FutureWeather } from "../types/Weather";
 
-export const getWeatherForecast = async (scale: Degrees): Promise<Forecast> => {
+export const getWeatherForecast = async (
+  scale: Degrees,
+  location: string
+): Promise<Forecast> => {
   try {
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?q=London&days=2&key=${apiKey}`,
+      `https://api.weatherapi.com/v1/forecast.json?q=${location}&days=2&key=${apiKey}`,
       {
         headers: {
           Accept: "application/json",

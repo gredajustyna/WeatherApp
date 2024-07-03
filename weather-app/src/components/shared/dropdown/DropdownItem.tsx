@@ -7,8 +7,8 @@ const StyledItem = styled.div`
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
-  :hover {
-    background-color: rgb(240, 249, 255);
+  &:hover {
+    background-color: "#f1ecec";
   }
 `;
 

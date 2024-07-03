@@ -5,6 +5,7 @@ import { CurrentWeather } from "../types/CurrentWeather";
 import { useSelector } from "react-redux";
 import {
   languageSelector,
+  locationSelector,
   temperatureScaleSelector,
 } from "../store/settings/settings.selector";
 
@@ -14,12 +15,13 @@ export const useWeatherData = () => {
   const [error, setError] = useState<Error | null>(null);
   const temperatureScale = useSelector(temperatureScaleSelector);
   const language = useSelector(languageSelector);
+  const location = useSelector(locationSelector);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await getWeatherData(temperatureScale, language);
+        const data = await getWeatherData(temperatureScale, language, location);
         setWeather(data);
       } catch (err) {
         console.error(err);
@@ -30,7 +32,7 @@ export const useWeatherData = () => {
     };
 
     fetchData();
-  }, [language, temperatureScale]);
+  }, [language, location, temperatureScale]);
 
   return { weather, loading, error };
 };

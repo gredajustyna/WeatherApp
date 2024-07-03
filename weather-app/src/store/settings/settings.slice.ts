@@ -6,6 +6,7 @@ import { Language } from "../../types/enums/Language";
 const initialState: SettingsState = {
   temperatureScale: Degrees.CELSIUS,
   language: Language.EN,
+  location: "London",
 };
 
 export const settingsSlice = createSlice({
@@ -20,6 +21,9 @@ export const settingsSlice = createSlice({
     },
     setLanguage: (state: SettingsState, action: PayloadAction<Language>) => {
       state.language = action.payload;
+    },
+    setLocation: (state: SettingsState, action: PayloadAction<string>) => {
+      state.location = action.payload;
     },
   },
 });

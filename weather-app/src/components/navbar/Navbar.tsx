@@ -1,13 +1,16 @@
-import { ReactElement, useState } from "react";
+import { Dispatch, ReactElement, SetStateAction, useState } from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { SearchButton } from "./SettingsButton";
 import { DrawerButton } from "./DrawerButton";
 import { colors } from "../../consts/colors";
 import { LocationButton } from "./LocationButton";
 import { TemperatureSettingRow } from "../drawer/TemperatureSettingRow";
 import { LanguageSettingRow } from "../drawer/LanguageSettingRow";
+import { SearchButton } from "./search/SearchButton";
+import { ClearButton } from "./search/ClearButton";
+import { Input } from "./search/Input";
+import { WeatherLocation } from "../../types/Location";
 
 const NavbarContainer = styled.div`
   background-color: ${colors.sky_blue};
@@ -25,21 +28,47 @@ const NavbarContainer = styled.div`
 
 interface NavbarProps {
   title: string;
+  isSearching: boolean;
+  setIsSearching: Dispatch<SetStateAction<boolean>>;
+  searchResults: WeatherLocation[];
+  setSearchResults: Dispatch<SetStateAction<WeatherLocation[]>>;
 }
 
-export const Navbar = ({ title }: NavbarProps): ReactElement => {
+export const Navbar = ({
+  title,
+  isSearching,
+  setIsSearching,
+  searchResults,
+  setSearchResults,
+}: NavbarProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+
+  const handleClearButtonClick = (): void => {
+    setIsSearching(false);
+    setSearchResults([]);
   };
 
   return (
     <>
       <NavbarContainer>
         <DrawerButton setIsOpen={setIsOpen} isOpen={isOpen} />
-        <h1>{title}</h1>
+        {isSearching ? (
+          <Input
+            searchResults={searchResults}
+            setSearchResults={setSearchResults}
+          />
+        ) : (
+          <h1 style={{ fontFamily: "skinny", fontSize: "60px" }}>{title}</h1>
+        )}
         <div>
-          <SearchButton />
+          {isSearching ? (
+            <ClearButton onClick={handleClearButtonClick} />
+          ) : (
+            <SearchButton onClick={() => setIsSearching(true)} />
+          )}
           <LocationButton />
         </div>
       </NavbarContainer>

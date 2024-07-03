@@ -9,3 +9,8 @@ export const languageSelector = createSelector(
   [(state) => state.language],
   (_) => _
 );
+
+export const locationSelector = createSelector(
+  [(state) => state.location],
+  (_) => _
+);
