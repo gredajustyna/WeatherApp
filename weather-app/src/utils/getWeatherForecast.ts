@@ -1,6 +1,7 @@
 import { Degrees } from "../types/enums/Degrees";
 import { Forecast } from "../types/Forecast";
 import { FutureWeather } from "../types/Weather";
+import { mapStringToMoonPhase } from "./mapStringToMoonPhase";
 
 export const getWeatherForecast = async (
   scale: Degrees,
@@ -55,6 +56,9 @@ export const getWeatherForecast = async (
           })
         ),
       ],
+      moonPhase: mapStringToMoonPhase(
+        json.forecast.forecastday[0].astro.moon_phase
+      ),
     };
 
     console.log(forecast);

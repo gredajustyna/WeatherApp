@@ -12,6 +12,7 @@ import { Overlay } from "./components/shared/Overlay";
 import { WeatherLocation } from "./types/Location";
 import { SearchResultsContainer } from "./components/navbar/search/SearchResultsContainer";
 import { FeelsLikeContainer } from "./components/feels_like_widget/FeelsLikeContainer";
+import { MoonPhaseContainer } from "./components/moon_phase_widget/MoonPhaseContainer";
 
 function App() {
   const [isSearching, setIsSearching] = useState(false);
@@ -47,6 +48,7 @@ function App() {
           <UVIndexContainer />
           <HumidityContainer />
           <FeelsLikeContainer />
+          <MoonPhaseContainer />
         </div>
       </div>
     </Provider>

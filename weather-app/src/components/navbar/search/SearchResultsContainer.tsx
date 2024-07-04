@@ -27,6 +27,7 @@ export const SearchResultsContainer = ({
     <SearchResults>
       {searchResults.map((result) => (
         <SearchResultItem
+          key={result.name}
           value={`${result.name}, ${result.country}`}
           onClick={() => handleSearchResultItemClick(result)}
         />
