@@ -31,9 +31,9 @@ export const FeelsLikeIndicator = ({
           d={`M 10 100 A 90 90 0 0 1 190 100`}
           fill="none"
           stroke="url(#gradient)"
-          stroke-width="20"
-          stroke-dasharray={circumference}
-          stroke-dashoffset={offset}
+          strokeWidth="20"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
         />
       </svg>
     </div>

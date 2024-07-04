@@ -47,6 +47,11 @@ i18n.use(initReactI18next).init({
             waningCrescent: "Waning Crescent",
           },
         },
+        dayTime: {
+          title: "Day time",
+          sunrise: "Sunrise: {{time}}",
+          sunset: "Sunset: {{time}}",
+        },
       },
     },
     pl: {
@@ -87,6 +92,11 @@ i18n.use(initReactI18next).init({
             lastQuarter: "Ostatnia kwadra",
             waningCrescent: "Malejący sierp",
           },
+        },
+        dayTime: {
+          title: "Pora dnia",
+          sunrise: "Wschód: {{time}}",
+          sunset: "Zachód: {{time}}",
         },
       },
     },

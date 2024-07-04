@@ -59,6 +59,8 @@ export const getWeatherForecast = async (
       moonPhase: mapStringToMoonPhase(
         json.forecast.forecastday[0].astro.moon_phase
       ),
+      sunrise: json.forecast.forecastday[0].astro.sunrise,
+      sunset: json.forecast.forecastday[0].astro.sunset,
     };
 
     console.log(forecast);

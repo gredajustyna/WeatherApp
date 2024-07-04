@@ -14,6 +14,7 @@ import { useForecastData } from "../hooks/useForecastData";
 import { CurrentWeather } from "../types/CurrentWeather";
 import { Forecast } from "../types/Forecast";
 import { Loading } from "../components/navbar/loading/Loading";
+import { DayTimeContainer } from "../components/day_time_widget/DayTimeContainer";
 
 export const WeatherContext = createContext<{
   weather: CurrentWeather;
@@ -81,6 +82,11 @@ export const MainPage = () => {
             <HumidityContainer />
             <FeelsLikeContainer />
             <MoonPhaseContainer />
+          </div>
+          <div
+            style={{ marginTop: "20px", display: "flex", flexDirection: "row" }}
+          >
+            <DayTimeContainer />
           </div>
         </div>
       </WeatherContext.Provider>

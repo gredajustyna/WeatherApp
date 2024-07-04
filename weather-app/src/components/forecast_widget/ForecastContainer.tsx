@@ -54,6 +54,7 @@ export const ForecastContainer = (): ReactElement => {
         .filter((hour) => new Date(hour.time) > new Date())
         .map((hour) => (
           <HourContainer
+            key={hour.time}
             hour={hour.time.split(" ")[1]}
             temperature={hour.degrees}
             icon={hour.icon}
