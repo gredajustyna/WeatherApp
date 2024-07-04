@@ -52,6 +52,17 @@ i18n.use(initReactI18next).init({
           sunrise: "Sunrise: {{time}}",
           sunset: "Sunset: {{time}}",
         },
+        airQuality: {
+          title: "Air quality",
+          quality: {
+            good: "Good",
+            moderate: "Moderate",
+            unhealthy1: "Unhealthy for sensitive group",
+            unhealthy2: "Unhealthy",
+            veryUnhealthy: "Very unhealthy",
+            hazardous: "Hazardous",
+          },
+        },
       },
     },
     pl: {
@@ -97,6 +108,17 @@ i18n.use(initReactI18next).init({
           title: "Pora dnia",
           sunrise: "Wschód: {{time}}",
           sunset: "Zachód: {{time}}",
+        },
+        airQuality: {
+          title: "Jakość powietrza",
+          quality: {
+            good: "Dobra",
+            moderate: "Średnia",
+            unhealthy1: "Niezdrowa dla grup wysokiego ryzyka",
+            unhealthy2: "Niezdrowa",
+            veryUnhealthy: "Bardzo niezdrowa",
+            hazardous: "Niebezpieczna",
+          },
         },
       },
     },

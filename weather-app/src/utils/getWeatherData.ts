@@ -12,7 +12,7 @@ export const getWeatherData = async (
     const languageSymbol = getLanguageSymbol(language);
     const apiKey = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?q=${location}&lang=${languageSymbol}&key=${apiKey}`,
+      `https://api.weatherapi.com/v1/current.json?q=${location}&lang=${languageSymbol}&aqi=yes&key=${apiKey}`,
       {
         headers: {
           Accept: "application/json",
@@ -39,6 +39,10 @@ export const getWeatherData = async (
       },
       lastUpdated: json.current.last_updated,
       location: json.location,
+      airQuality: {
+        pm2_5: json.current.air_quality.pm2_5,
+        usEpaIndex: json.current.air_quality["us-epa-index"],
+      },
     };
 
     console.log(currentWeather);
