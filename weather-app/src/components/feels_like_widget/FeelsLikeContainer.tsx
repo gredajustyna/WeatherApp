@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { TitleComponent } from "../shared/TitleComponent";
-import { useWeatherData } from "../../hooks/useWeatherData";
 import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { useTranslation } from "react-i18next";
 import { WiThermometer } from "react-icons/wi";
@@ -12,6 +11,7 @@ import { temperatureScaleSelector } from "../../store/settings/settings.selector
 import { FeelsLikeIndicator } from "./FeelsLikeIndicator";
 import { mapTemperatureDifferenceToLabelKey } from "../../utils/mapTemperatureDifferenceToLabelKey";
 import { getPercentageFromTemperatureDifference } from "../../utils/getPercentageFromTemperatureDifference";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -36,11 +36,9 @@ const ValueContainer = styled.div`
 `;
 
 export const FeelsLikeContainer = (): ReactElement => {
-  const { weather, loading } = useWeatherData();
   const { t } = useTranslation();
+  const { weather } = useContext(WeatherContext);
   const temperatureScale = useSelector(temperatureScaleSelector);
-
-  if (loading || !weather) return <div>Loading...</div>;
   const temperatureDifference = getPercentageFromTemperatureDifference(
     weather.weather.feelsLike - weather.weather.degrees
   );

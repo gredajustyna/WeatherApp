@@ -1,13 +1,13 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { NumberContainer } from "./NumberContainer";
 import { GradientContainer } from "./GradientContainer";
 import { TitleComponent } from "../shared/TitleComponent";
 import { mapUVIndexToLabelKey } from "../../utils/mapUVIndexToLabelKey";
-import { useWeatherData } from "../../hooks/useWeatherData";
 import { useTranslation } from "react-i18next";
 import { WiDaySunny } from "react-icons/wi";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -32,9 +32,8 @@ const ValueContainer = styled.div`
 `;
 
 export const UVIndexContainer = (): ReactElement => {
-  const { weather, loading } = useWeatherData();
   const { t } = useTranslation();
-  if (loading || !weather) return <div>Loading...</div>;
+  const { weather } = useContext(WeatherContext);
 
   return (
     <StyledContainer>

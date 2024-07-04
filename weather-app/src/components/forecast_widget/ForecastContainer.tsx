@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import { HourContainer } from "./HourContainer";
 import { Line, LineChart } from "recharts";
-import { useForecastData } from "../../hooks/useForecastData";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -34,9 +34,7 @@ const ChartContainer = styled.div`
 `;
 
 export const ForecastContainer = (): ReactElement => {
-  const { forecast, loading } = useForecastData();
-
-  if (loading || !forecast) return <div>Loading...</div>;
+  const { forecast } = useContext(WeatherContext);
 
   return (
     <StyledContainer>

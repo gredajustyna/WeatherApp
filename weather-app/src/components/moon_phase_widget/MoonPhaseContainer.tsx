@@ -1,13 +1,12 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { TitleComponent } from "../shared/TitleComponent";
 import { useTranslation } from "react-i18next";
 import { WiMoonWaningCrescent3 } from "react-icons/wi";
 import { NumberContainer } from "../uv_index_widget/NumberContainer";
-import { useWeatherData } from "../../hooks/useWeatherData";
 import { getMoonIconFromMoonPhase } from "../../utils/getMoonIconFromMoonPhase";
-import { useForecastData } from "../../hooks/useForecastData";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -33,11 +32,8 @@ const ValueContainer = styled.div`
 `;
 
 export const MoonPhaseContainer = (): ReactElement => {
+  const { weather, forecast } = useContext(WeatherContext);
   const { t } = useTranslation();
-  const { weather, loading } = useWeatherData();
-  const { forecast } = useForecastData();
-
-  if (loading || !weather || !forecast) return <div>Loading...</div>;
 
   return (
     <StyledContainer>

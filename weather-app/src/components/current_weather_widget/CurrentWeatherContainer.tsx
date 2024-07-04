@@ -1,10 +1,10 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { DegreesContainer } from "./DegreesContainer";
 import { LocationText } from "./LocationText";
 import { DescriptionText } from "./DescriptionText";
-import { useWeatherData } from "../../hooks/useWeatherData";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -24,10 +24,7 @@ const StyledContainer = styled.div`
 `;
 
 export const CurrentWeatherContainer = (): ReactElement => {
-  const { weather, loading } = useWeatherData();
-
-  if (loading || !weather) return <div>Loading...</div>;
-
+  const { weather } = useContext(WeatherContext);
   return (
     <StyledContainer>
       <LocationText

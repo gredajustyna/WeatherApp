@@ -1,12 +1,12 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { TitleComponent } from "../shared/TitleComponent";
-import { useWeatherData } from "../../hooks/useWeatherData";
 import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { HumidityIndicator } from "./HumidityIndicator";
 import { useTranslation } from "react-i18next";
 import { WiHumidity } from "react-icons/wi";
+import { WeatherContext } from "../../pages/MainPage";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -31,10 +31,8 @@ const ValueContainer = styled.div`
 `;
 
 export const HumidityContainer = (): ReactElement => {
-  const { weather, loading } = useWeatherData();
+  const { weather } = useContext(WeatherContext);
   const { t } = useTranslation();
-
-  if (loading || !weather) return <div>Loading...</div>;
 
   return (
     <StyledContainer>
