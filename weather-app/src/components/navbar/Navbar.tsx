@@ -15,7 +15,7 @@ import { WeatherLocation } from "../../types/Location";
 const NavbarContainer = styled.div`
   background-color: ${colors.sky_blue};
   height: 60px;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   top: 0;
   display: flex;

@@ -13,6 +13,7 @@ import { useWeatherData } from "../hooks/useWeatherData";
 import { useForecastData } from "../hooks/useForecastData";
 import { CurrentWeather } from "../types/CurrentWeather";
 import { Forecast } from "../types/Forecast";
+import { Loading } from "../components/navbar/loading/Loading";
 
 export const WeatherContext = createContext<{
   weather: CurrentWeather;
@@ -27,11 +28,18 @@ export const MainPage = () => {
   const { weather, loading } = useWeatherData();
   const { forecast, loading: forecastLoading } = useForecastData();
 
-  if (!weather || !forecast || loading || forecastLoading) return <></>;
-
-  return (
-    <WeatherContext.Provider value={{ weather, forecast }}>
-      <div className="App">
+  if (!weather || !forecast || loading || forecastLoading)
+    return (
+      <div
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Navbar
           title="WeatherApp"
           isSearching={isSearching}
@@ -39,27 +47,43 @@ export const MainPage = () => {
           searchResults={searchResults}
           setSearchResults={setSearchResults}
         />
-        {isSearching && <Overlay />}
-        {isSearching && (
-          <SearchResultsContainer
-            searchResults={searchResults}
-            setSearchResults={setSearchResults}
-            setIsSearching={setIsSearching}
-          />
-        )}
-        <div style={{ display: "flex" }}>
-          <CurrentWeatherContainer />
-          <ForecastContainer />
-        </div>
-        <div
-          style={{ marginTop: "20px", display: "flex", flexDirection: "row" }}
-        >
-          <UVIndexContainer />
-          <HumidityContainer />
-          <FeelsLikeContainer />
-          <MoonPhaseContainer />
-        </div>
+        <Loading />
       </div>
-    </WeatherContext.Provider>
+    );
+
+  return (
+    <div>
+      <Navbar
+        title="WeatherApp"
+        isSearching={isSearching}
+        setIsSearching={setIsSearching}
+        searchResults={searchResults}
+        setSearchResults={setSearchResults}
+      />
+      <WeatherContext.Provider value={{ weather, forecast }}>
+        <div className="App">
+          {isSearching && <Overlay />}
+          {isSearching && (
+            <SearchResultsContainer
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
+              setIsSearching={setIsSearching}
+            />
+          )}
+          <div style={{ display: "flex" }}>
+            <CurrentWeatherContainer />
+            <ForecastContainer />
+          </div>
+          <div
+            style={{ marginTop: "20px", display: "flex", flexDirection: "row" }}
+          >
+            <UVIndexContainer />
+            <HumidityContainer />
+            <FeelsLikeContainer />
+            <MoonPhaseContainer />
+          </div>
+        </div>
+      </WeatherContext.Provider>
+    </div>
   );
 };
