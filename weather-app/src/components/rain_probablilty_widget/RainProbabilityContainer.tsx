@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { colors } from "../../consts/colors";
 import { TitleComponent } from "../shared/TitleComponent";
 import { useTranslation } from "react-i18next";
-import { WiFog } from "react-icons/wi";
-import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { WeatherContext } from "../../pages/MainPage";
-import { getFaceIconFromEpaIndex } from "../../utils/getFaceIconFromEpaIndex";
-import { mapEpaIndexToLabelKey } from "../../utils/mapEpaIndexToLabelKey";
+import { WiRainMix } from "react-icons/wi";
+import { NumberContainer } from "../uv_index_widget/NumberContainer";
+import { WiRain } from "react-icons/wi";
 
 const StyledContainer = styled.div`
   border-radius: 12px;
@@ -31,30 +30,19 @@ const ValueContainer = styled.div`
   align-items: center;
 `;
 
-export const AirQualityContainer = () => {
+export const RainProbabilityContainer = () => {
   const { t } = useTranslation();
-  const { weather } = useContext(WeatherContext);
+  const { forecast } = useContext(WeatherContext);
   return (
     <StyledContainer>
       <TitleComponent
-        value={t("airQuality.title")}
-        icon={<WiFog style={{ width: "25px", height: "25px" }} />}
+        value={t("rainProbability.title")}
+        icon={<WiRainMix style={{ width: "25px", height: "25px" }} />}
       />
       <ValueContainer>
-        {getFaceIconFromEpaIndex(weather.airQuality.usEpaIndex)}
-        <NumberContainer index={weather.airQuality.pm2_5} />
-        <div>
-          <div>µg/m3</div>
-          <div>PM 2.5</div>
-        </div>
+        <WiRain style={{ width: "10vh", height: "10vh" }} />
+        <NumberContainer index={`${forecast.chanceOfRain}%`} />
       </ValueContainer>
-      <TitleComponent
-        value={t(
-          `airQuality.quality.${mapEpaIndexToLabelKey(
-            weather.airQuality.usEpaIndex
-          )}`
-        )}
-      />
     </StyledContainer>
   );
 };

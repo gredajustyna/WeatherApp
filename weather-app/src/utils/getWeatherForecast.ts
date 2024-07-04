@@ -61,6 +61,7 @@ export const getWeatherForecast = async (
       ),
       sunrise: json.forecast.forecastday[0].astro.sunrise,
       sunset: json.forecast.forecastday[0].astro.sunset,
+      chanceOfRain: json.forecast.forecastday[0].day.daily_chance_of_rain,
     };
 
     console.log(forecast);

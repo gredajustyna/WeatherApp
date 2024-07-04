@@ -63,6 +63,9 @@ i18n.use(initReactI18next).init({
             hazardous: "Hazardous",
           },
         },
+        rainProbability: {
+          title: "Rain probability",
+        },
       },
     },
     pl: {
@@ -119,6 +122,9 @@ i18n.use(initReactI18next).init({
             veryUnhealthy: "Bardzo niezdrowa",
             hazardous: "Niebezpieczna",
           },
+        },
+        rainProbability: {
+          title: "Prawdopodobieństwo deszczu",
         },
       },
     },

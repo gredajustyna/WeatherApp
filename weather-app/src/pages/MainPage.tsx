@@ -16,6 +16,7 @@ import { Forecast } from "../types/Forecast";
 import { Loading } from "../components/navbar/loading/Loading";
 import { DayTimeContainer } from "../components/day_time_widget/DayTimeContainer";
 import { AirQualityContainer } from "../components/air_quality_widget/AirQualityContainer";
+import { RainProbabilityContainer } from "../components/rain_probablilty_widget/RainProbabilityContainer";
 
 export const WeatherContext = createContext<{
   weather: CurrentWeather;
@@ -89,6 +90,7 @@ export const MainPage = () => {
           >
             <DayTimeContainer />
             <AirQualityContainer />
+            <RainProbabilityContainer />
           </div>
         </div>
       </WeatherContext.Provider>

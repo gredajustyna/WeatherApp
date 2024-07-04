@@ -6,4 +6,5 @@ export interface Forecast {
   moonPhase: MoonPhase;
   sunrise: string;
   sunset: string;
+  chanceOfRain: number;
 }
