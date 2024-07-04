@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { getCountryCodeFromName } from "../../utils/getCountryCodeFromName";
 
 const StyledLocationText = styled.div`
   font-size: larger;
@@ -30,11 +31,17 @@ export const LocationText = ({
   lastUpdated,
 }: LocationElementProps): ReactElement => {
   const { t } = useTranslation();
+  const countryCode = getCountryCodeFromName(country);
+
   return (
     <TextContainer>
-      <StyledLocationText>
-        {city}, {country}
-      </StyledLocationText>
+      <div>
+        <img src={`https://flagcdn.com/16x12/${countryCode}.png`} alt="flag" />
+        <StyledLocationText>
+          {city}, {country}
+        </StyledLocationText>
+      </div>
+
       <StyledUpdateText>
         {t("currentWeather.lastUpdate")} {lastUpdated}
       </StyledUpdateText>
