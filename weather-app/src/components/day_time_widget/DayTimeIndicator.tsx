@@ -4,6 +4,9 @@ import { WeatherContext } from "../../pages/MainPage";
 import { useTranslation } from "react-i18next";
 import { convertTo24HourFormat } from "../../utils/convertTo24HourFormat";
 import sunImage from "../../assets/images/sun.png";
+import { useSelector } from "react-redux";
+import { timeFormatSelector } from "../../store/settings/settings.selector";
+import { TimeFormat } from "../../types/enums/TimeFormat";
 
 const DayTimeIndicatorContainer = styled.div`
   display: flex;
@@ -43,6 +46,7 @@ export const DayTimeIndicator = () => {
   const sunriseHour = 4;
   const sunsetHour = 21;
   const { x, y } = calculateSunPosition(hour, sunriseHour, sunsetHour);
+  const timeFormat = useSelector(timeFormatSelector);
 
   return (
     <DayTimeIndicatorContainer>
@@ -70,12 +74,18 @@ export const DayTimeIndicator = () => {
       <SunriseSunsetContainer>
         <div>
           {t("dayTime.sunrise", {
-            time: convertTo24HourFormat(forecast.sunrise),
+            time:
+              timeFormat === TimeFormat.TIME_12H
+                ? forecast.sunrise
+                : convertTo24HourFormat(forecast.sunrise),
           })}
         </div>
         <div>
           {t("dayTime.sunset", {
-            time: convertTo24HourFormat(forecast.sunset),
+            time:
+              timeFormat === TimeFormat.TIME_12H
+                ? forecast.sunset
+                : convertTo24HourFormat(forecast.sunset),
           })}
         </div>
       </SunriseSunsetContainer>

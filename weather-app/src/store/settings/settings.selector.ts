@@ -14,3 +14,8 @@ export const locationSelector = createSelector(
   [(state) => state.location],
   (_) => _
 );
+
+export const timeFormatSelector = createSelector(
+  [(state) => state.timeFormat],
+  (_) => _
+);

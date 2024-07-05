@@ -2,7 +2,12 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 import { formatDegrees } from "../../utils/formatDegrees";
 import { useSelector } from "react-redux";
-import { temperatureScaleSelector } from "../../store/settings/settings.selector";
+import {
+  temperatureScaleSelector,
+  timeFormatSelector,
+} from "../../store/settings/settings.selector";
+import { TimeFormat } from "../../types/enums/TimeFormat";
+import { convertTo12HourFormat } from "../../utils/convertTo12HourFormat";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -25,12 +30,17 @@ export const HourContainer = ({
   icon,
 }: HourContainerProps): ReactElement => {
   const temperatureScale = useSelector(temperatureScaleSelector);
+  const timeFormat = useSelector(timeFormatSelector);
   return (
     <StyledContainer>
       <div>{formatDegrees(temperature, temperatureScale)}</div>
       <div>
         <img src={icon} alt=""></img>
-        <div>{hour}</div>
+        <div>
+          {timeFormat === TimeFormat.TIME_24H
+            ? hour
+            : convertTo12HourFormat(hour)}
+        </div>
       </div>
     </StyledContainer>
   );

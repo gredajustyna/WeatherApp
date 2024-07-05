@@ -11,6 +11,7 @@ import { SearchButton } from "./search/SearchButton";
 import { ClearButton } from "./search/ClearButton";
 import { Input } from "./search/Input";
 import { WeatherLocation } from "../../types/Location";
+import { TimeFormatSettingRow } from "../drawer/TimeFormatSettingRow";
 
 const NavbarContainer = styled.div`
   background-color: ${colors.sky_blue};
@@ -82,6 +83,7 @@ export const Navbar = ({
         <div style={{ gap: "50px" }}>
           <TemperatureSettingRow />
           <LanguageSettingRow />
+          <TimeFormatSettingRow />
         </div>
       </Drawer>
     </>

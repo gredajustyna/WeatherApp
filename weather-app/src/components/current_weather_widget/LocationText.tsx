@@ -2,6 +2,10 @@ import { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { getCountryCodeFromName } from "../../utils/getCountryCodeFromName";
+import { useSelector } from "react-redux";
+import { timeFormatSelector } from "../../store/settings/settings.selector";
+import { TimeFormat } from "../../types/enums/TimeFormat";
+import { formatLastUpdatedText } from "../../utils/formatLastUpdatedText";
 
 const StyledLocationText = styled.div`
   font-size: larger;
@@ -32,6 +36,7 @@ export const LocationText = ({
 }: LocationElementProps): ReactElement => {
   const { t } = useTranslation();
   const countryCode = getCountryCodeFromName(country);
+  const timeFormat = useSelector(timeFormatSelector);
 
   return (
     <TextContainer>
@@ -43,7 +48,10 @@ export const LocationText = ({
       </div>
 
       <StyledUpdateText>
-        {t("currentWeather.lastUpdate")} {lastUpdated}
+        {t("currentWeather.lastUpdate")}{" "}
+        {timeFormat === TimeFormat.TIME_24H
+          ? lastUpdated
+          : formatLastUpdatedText(lastUpdated)}
       </StyledUpdateText>
     </TextContainer>
   );
