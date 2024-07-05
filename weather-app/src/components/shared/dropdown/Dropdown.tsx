@@ -1,6 +1,6 @@
 import { Dispatch, ReactElement, SetStateAction, useRef } from "react";
 import DropdownButton from "./DropdownButton";
-import DropdownContent from "./DropdownContent";
+import { DropdownContent } from "./DropdownContent";
 
 interface DropdownProps {
   value: string;
