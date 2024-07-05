@@ -7,11 +7,11 @@ export const mapTemperatureDifferenceToLabelKey = (
       return "veryLow";
     case 35:
       return "low";
-    case 50:
+    case 56:
       return "same";
     case 65:
       return "high";
-    case 80:
+    case 100:
       return "veryHigh";
     default:
       return "";
