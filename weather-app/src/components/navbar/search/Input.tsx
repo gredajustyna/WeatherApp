@@ -29,5 +29,5 @@ export const Input = ({
     const results = await getSearchData(inputValue);
     setSearchResults(results);
   };
-  return <StyledInput onChange={handleInputChange} />;
+  return <StyledInput onChange={handleInputChange} autoFocus />;
 };
