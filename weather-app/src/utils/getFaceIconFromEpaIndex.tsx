@@ -14,15 +14,15 @@ const iconStyle = {
 export const getFaceIconFromEpaIndex = (index: number): ReactNode => {
   switch (index) {
     case 1:
-      return <FaRegLaugh style={iconStyle} />;
+      return <FaRegLaugh style={{ ...iconStyle, color: "green" }} />;
     case 2:
-      return <FaRegSmile style={iconStyle} />;
+      return <FaRegSmile style={{ ...iconStyle, color: "lightgreen" }} />;
     case 3:
-      return <FaRegMeh style={iconStyle} />;
+      return <FaRegMeh style={{ ...iconStyle, color: "yellow" }} />;
     case 4:
-      return <FaRegFrown style={iconStyle} />;
+      return <FaRegFrown style={{ ...iconStyle, color: "orange" }} />;
     case 5:
-      return <FaRegTired style={iconStyle} />;
+      return <FaRegTired style={{ ...iconStyle, color: "red" }} />;
     case 6:
       return <FaSkull style={iconStyle} />;
     default:
