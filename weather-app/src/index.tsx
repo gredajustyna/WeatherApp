@@ -5,6 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./i18n";
+import { SettingsState } from "./store/settings/settings.interface";
+
+declare global {
+  interface Window {
+    reduxStore?: SettingsState;
+  }
+}
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -27,3 +27,5 @@ export const settingsSlice = createSlice({
     },
   },
 });
+
+export const settingsReducer = settingsSlice.reducer;
