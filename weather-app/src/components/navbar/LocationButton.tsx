@@ -27,7 +27,9 @@ export const LocationButton = (): ReactElement => {
   }
   return (
     <NavigationButton onClick={handleLocationClick}>
-      <AiOutlineCompass style={{ width: 40, height: 35, paddingRight: 10 }} />
+      <AiOutlineCompass
+        style={{ width: 40, height: 35, paddingRight: 10, cursor: "pointer" }}
+      />
     </NavigationButton>
   );
 };

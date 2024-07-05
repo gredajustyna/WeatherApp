@@ -9,7 +9,9 @@ interface SearchButtonProps {
 export const SearchButton = ({ onClick }: SearchButtonProps): ReactElement => {
   return (
     <NavigationButton onClick={onClick}>
-      <AiOutlineSearch style={{ width: 40, height: 35, paddingRight: 10 }} />
+      <AiOutlineSearch
+        style={{ width: 40, height: 35, paddingRight: 10, cursor: "pointer" }}
+      />
     </NavigationButton>
   );
 };

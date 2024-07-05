@@ -13,7 +13,7 @@ const StyledSearchResultItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f1ecec;
+    background-color: #f5f5f5;
   }
 `;
 

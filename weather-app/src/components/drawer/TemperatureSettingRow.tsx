@@ -16,7 +16,7 @@ const TemperatureSettingContainer = styled.div`
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 
   .react-toggle--checked .react-toggle-track {
     background-color: ${colors.sky_blue};

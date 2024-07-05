@@ -9,7 +9,9 @@ interface ClearButtonProps {
 export const ClearButton = ({ onClick }: ClearButtonProps): ReactElement => {
   return (
     <NavigationButton onClick={onClick}>
-      <AiOutlineClose style={{ width: 40, height: 35, paddingRight: 10 }} />
+      <AiOutlineClose
+        style={{ width: 40, height: 35, paddingRight: 10, cursor: "pointer" }}
+      />
     </NavigationButton>
   );
 };

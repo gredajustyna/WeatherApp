@@ -81,9 +81,9 @@ export const Navbar = ({
         style={{ paddingTop: "60px" }}
       >
         <div style={{ gap: "50px" }}>
+          <TimeFormatSettingRow />
           <TemperatureSettingRow />
           <LanguageSettingRow />
-          <TimeFormatSettingRow />
         </div>
       </Drawer>
     </>
