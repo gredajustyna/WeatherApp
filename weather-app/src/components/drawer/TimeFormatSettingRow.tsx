@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { timeFormatSelector } from "../../store/settings/settings.selector";
 import { TimeFormat } from "../../types/enums/TimeFormat";
 import { setTimeFormat } from "../../store/settings/settings.actions";
+import { t } from "i18next";
 
 const TimeFormatSettingContainer = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ export const TimeFormatSettingRow = (): ReactElement => {
   const dispatch = useDispatch();
   return (
     <TimeFormatSettingContainer>
-      <TitleComponent value="Time format" />
+      <TitleComponent value={t("drawer.timeFormat")} />
       <div
         style={{
           alignItems: "center",

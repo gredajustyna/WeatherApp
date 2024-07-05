@@ -9,6 +9,7 @@ import { languageSelector } from "../../store/settings/settings.selector";
 import { setLanguage } from "../../store/settings/settings.actions";
 import i18n from "../../i18n";
 import { getLanguageSymbol } from "../../utils/getLanguageSymbol";
+import { t } from "i18next";
 
 const LanguageSettingContainer = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ export const LanguageSettingRow = (): ReactElement => {
 
   return (
     <LanguageSettingContainer>
-      <TitleComponent value="Language" />
+      <TitleComponent value={t("drawer.language")} />
       <Dropdown
         value={selectedLanguage}
         children={

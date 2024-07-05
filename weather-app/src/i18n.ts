@@ -66,6 +66,11 @@ i18n.use(initReactI18next).init({
         rainProbability: {
           title: "Rain probability",
         },
+        drawer: {
+          timeFormat: "Time format",
+          temperatureScale: "Temperature scale",
+          language: "Language",
+        },
       },
     },
     pl: {
@@ -125,6 +130,11 @@ i18n.use(initReactI18next).init({
         },
         rainProbability: {
           title: "Prawdopodobieństwo deszczu",
+        },
+        drawer: {
+          timeFormat: "Format godziny",
+          temperatureScale: "Skala temperatury",
+          language: "Język",
         },
       },
     },

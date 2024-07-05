@@ -8,6 +8,7 @@ import { Degrees } from "../../types/enums/Degrees";
 import { setTemperatureScale } from "../../store/settings/settings.actions";
 import { TitleComponent } from "../shared/TitleComponent";
 import { colors } from "../../consts/colors";
+import { t } from "i18next";
 
 const TemperatureSettingContainer = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ export const TemperatureSettingRow = (): ReactElement => {
 
   return (
     <TemperatureSettingContainer>
-      <TitleComponent value="Temperature scale" />
+      <TitleComponent value={t("drawer.temperatureScale")} />
       <div
         style={{
           alignItems: "center",
