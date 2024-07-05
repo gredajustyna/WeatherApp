@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 import styled from "styled-components";
 
 const ButtonContainer = styled.div`
@@ -13,18 +13,13 @@ const ButtonContainer = styled.div`
   cursor: pointer;
 `;
 
-const StyledArrowDown = styled(AiOutlineDown)`
+const AnimatedIcon = styled(AiOutlineDown)<{ open: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 1rem;
-`;
-
-const StyledArrowUp = styled(AiOutlineUp)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 1rem;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ open }) => (open ? "rotate(180deg)" : "rotate(0deg)")};
 `;
 
 interface DropdownButtonProps {
@@ -37,7 +32,7 @@ const DropdownButton = ({ children, toggle, open }: DropdownButtonProps) => {
   return (
     <ButtonContainer onClick={toggle}>
       {children}
-      <span>{open ? <StyledArrowUp /> : <StyledArrowDown />}</span>
+      <AnimatedIcon open={open} />
     </ButtonContainer>
   );
 };
