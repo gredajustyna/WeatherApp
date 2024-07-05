@@ -42,9 +42,16 @@ const iconStyle = {
   borderRadius: "50%",
 };
 
+const newMoonIconStyle = {
+  height: "13vh",
+  width: "13vh",
+  borderRadius: "50%",
+  color: "transparent",
+};
+
 export const getMoonIconFromMoonPhase = (moonPhase: MoonPhase): ReactNode => {
   const icon = {
-    [MoonPhase.NEW_MOON]: <WiMoonNew style={iconStyle} />,
+    [MoonPhase.NEW_MOON]: <WiMoonNew style={newMoonIconStyle} />,
     [MoonPhase.WAXING_CRESCENT]: <WiMoonWaxingCrescent3 style={iconStyle} />,
     [MoonPhase.FIRST_QUARTER]: <WiMoonFirstQuarter style={iconStyle} />,
     [MoonPhase.WAXING_GIBBOUS]: <WiMoonWaxingGibbous5 style={iconStyle} />,
