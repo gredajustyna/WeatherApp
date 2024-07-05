@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,6 @@ import { temperatureScaleSelector } from "../../store/settings/settings.selector
 import { Degrees } from "../../types/enums/Degrees";
 import { setTemperatureScale } from "../../store/settings/settings.actions";
 import { TitleComponent } from "../shared/TitleComponent";
-import { colors } from "../../consts/colors";
 import { t } from "i18next";
 
 const TemperatureSettingContainer = styled.div`
@@ -20,7 +19,7 @@ const TemperatureSettingContainer = styled.div`
   margin-top: 30px;
 
   .react-toggle--checked .react-toggle-track {
-    background-color: ${colors.sky_blue};
+    background-color: ${({ theme }) => theme.colors.sky_blue};
   }
 
   .react-toggle--checked .react-toggle-thumb {
@@ -30,6 +29,7 @@ const TemperatureSettingContainer = styled.div`
 
 export const TemperatureSettingRow = (): ReactElement => {
   const temperatureScale = useSelector(temperatureScaleSelector);
+  const theme = useTheme();
   const dispatch = useDispatch();
 
   return (
@@ -48,7 +48,7 @@ export const TemperatureSettingRow = (): ReactElement => {
         <label>°F</label>
         <Toggle
           icons={false}
-          style={{ backgroundColor: colors.sky_blue }}
+          style={{ backgroundColor: theme.colors.sky_blue }}
           defaultChecked={temperatureScale === Degrees.CELSIUS}
           onChange={() => {
             if (temperatureScale === Degrees.CELSIUS) {

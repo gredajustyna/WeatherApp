@@ -7,4 +7,5 @@ export interface SettingsState {
   language: Language;
   location: string;
   timeFormat: TimeFormat;
+  theme: string;
 }

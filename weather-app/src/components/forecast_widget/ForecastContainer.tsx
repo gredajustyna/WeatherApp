@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../consts/colors";
 import { ReactElement, useContext } from "react";
 import { HourContainer } from "./HourContainer";
 import { Line, LineChart } from "recharts";
@@ -19,7 +18,7 @@ const StyledContainer = styled.div`
   margin-top: 80px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${colors.sky_blue};
+  background-color: ${({ theme }) => theme.colors.sky_blue};
   padding-left: 10px;
   padding-right: 10px;
   overflow-x: auto;

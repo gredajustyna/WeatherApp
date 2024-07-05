@@ -9,6 +9,7 @@ const initialState: SettingsState = {
   language: Language.EN,
   location: "London",
   timeFormat: TimeFormat.TIME_24H,
+  theme: "light",
 };
 
 export const settingsSlice = createSlice({
@@ -32,6 +33,9 @@ export const settingsSlice = createSlice({
       action: PayloadAction<TimeFormat>
     ) => {
       state.timeFormat = action.payload;
+    },
+    setTheme: (state: SettingsState, action: PayloadAction<string>) => {
+      state.theme = action.payload;
     },
   },
 });

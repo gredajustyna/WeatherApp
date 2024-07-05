@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
-import styled from "styled-components";
-import { colors } from "../../consts/colors";
+import styled, { useTheme } from "styled-components";
 import { TitleComponent } from "../shared/TitleComponent";
 import Toggle from "react-toggle";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +18,7 @@ const TimeFormatSettingContainer = styled.div`
   margin-top: 20px;
 
   .react-toggle--checked .react-toggle-track {
-    background-color: ${colors.sky_blue};
+    background-color: ${({ theme }) => theme.colors.sky_blue};
   }
 
   .react-toggle--checked .react-toggle-thumb {
@@ -29,6 +28,7 @@ const TimeFormatSettingContainer = styled.div`
 
 export const TimeFormatSettingRow = (): ReactElement => {
   const timeFormat = useSelector(timeFormatSelector);
+  const theme = useTheme();
   const dispatch = useDispatch();
   return (
     <TimeFormatSettingContainer>
@@ -46,7 +46,7 @@ export const TimeFormatSettingRow = (): ReactElement => {
         <label>12h</label>
         <Toggle
           icons={false}
-          style={{ backgroundColor: colors.sky_blue }}
+          style={{ backgroundColor: theme.colors.sky_blue }}
           defaultChecked={timeFormat === TimeFormat.TIME_24H}
           onChange={() => {
             if (timeFormat === TimeFormat.TIME_24H) {

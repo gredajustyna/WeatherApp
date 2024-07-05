@@ -19,3 +19,5 @@ export const timeFormatSelector = createSelector(
   [(state) => state.timeFormat],
   (_) => _
 );
+
+export const themeSelector = createSelector([(state) => state.theme], (_) => _);

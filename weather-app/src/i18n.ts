@@ -70,6 +70,11 @@ i18n.use(initReactI18next).init({
           timeFormat: "Time format",
           temperatureScale: "Temperature scale",
           language: "Language",
+          theme: {
+            theme: "Mode",
+            light: "Light",
+            dark: "Dark",
+          },
         },
       },
     },
@@ -135,6 +140,11 @@ i18n.use(initReactI18next).init({
           timeFormat: "Format godziny",
           temperatureScale: "Skala temperatury",
           language: "Język",
+          theme: {
+            theme: "Motyw",
+            light: "Jasny",
+            dark: "Ciemny",
+          },
         },
       },
     },

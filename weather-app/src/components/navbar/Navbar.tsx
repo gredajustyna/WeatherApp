@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { DrawerButton } from "./DrawerButton";
-import { colors } from "../../consts/colors";
 import { LocationButton } from "./LocationButton";
 import { TemperatureSettingRow } from "../drawer/TemperatureSettingRow";
 import { LanguageSettingRow } from "../drawer/LanguageSettingRow";
@@ -12,9 +11,10 @@ import { ClearButton } from "./search/ClearButton";
 import { Input } from "./search/Input";
 import { WeatherLocation } from "../../types/Location";
 import { TimeFormatSettingRow } from "../drawer/TimeFormatSettingRow";
+import { ThemeSettingRow } from "../drawer/ThemeSettingRow";
 
 const NavbarContainer = styled.div`
-  background-color: ${colors.sky_blue};
+  background-color: ${({ theme }) => theme.colors.sky_blue};
   height: 60px;
   width: 100%;
   position: absolute;
@@ -83,6 +83,7 @@ export const Navbar = ({
         <div style={{ gap: "50px" }}>
           <TimeFormatSettingRow />
           <TemperatureSettingRow />
+          <ThemeSettingRow />
           <LanguageSettingRow />
         </div>
       </Drawer>

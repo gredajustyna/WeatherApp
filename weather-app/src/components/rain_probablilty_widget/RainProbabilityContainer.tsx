@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { colors } from "../../consts/colors";
 import { TitleComponent } from "../shared/TitleComponent";
 import { useTranslation } from "react-i18next";
 import { WeatherContext } from "../../pages/MainPage";
@@ -19,7 +18,7 @@ const StyledContainer = styled.div`
   margin-top: 100px + 20vh;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${colors.sky_blue};
+  background-color: ${({ theme }) => theme.colors.sky_blue};
   padding-left: 10px;
   padding-right: 10px;
 `;

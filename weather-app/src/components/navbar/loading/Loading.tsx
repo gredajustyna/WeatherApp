@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { colors } from "../../../consts/colors";
 
 const StyledIconDiv = styled.div`
   animation-name: spin;
@@ -19,10 +18,15 @@ const StyledIconDiv = styled.div`
 `;
 
 export const Loading = () => {
+  const theme = useTheme();
   return (
     <StyledIconDiv>
       <AiOutlineLoading3Quarters
-        style={{ width: "200px", height: "200px", color: colors.sky_blue }}
+        style={{
+          width: "200px",
+          height: "200px",
+          color: theme.colors.sky_blue,
+        }}
       />
     </StyledIconDiv>
   );
