@@ -7,6 +7,7 @@ const StyledContainer = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
+  margin-left: 0.5%;
 `;
 
 export const Divider = (): ReactElement => {

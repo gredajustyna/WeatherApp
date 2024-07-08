@@ -12,7 +12,7 @@ export const FeelsLikeIndicator = ({
   const offset = circumference - (difference / 100) * circumference;
   return (
     <div>
-      <svg width="180" height="110" viewBox="0 0 200 110">
+      <svg width="100%" height="110" viewBox="0 0 200 100">
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" style={{ stopColor: "blue", stopOpacity: 1 }} />

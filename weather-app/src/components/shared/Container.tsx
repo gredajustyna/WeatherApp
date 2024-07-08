@@ -9,7 +9,7 @@ const StyledContainer = styled.div<ContainerProps>`
   width: 100%;
   flex-direction: ${(props) => props.flexDirection};
   justify-content: space-between;
-  padding: 10px;
+  padding: 16px;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 

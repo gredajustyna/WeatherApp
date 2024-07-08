@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { ResponsiveNumberContainer } from "../shared/ResponsiveNumberContainer";
 
 const StyledContainer = styled.div`
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
