@@ -5,10 +5,10 @@ import { getCountryCodeFromName } from "../../utils/getCountryCodeFromName";
 import { useSelector } from "react-redux";
 import { timeFormatSelector } from "../../store/settings/settings.selector";
 import { TimeFormat } from "../../types/enums/TimeFormat";
-import { formatLastUpdatedText } from "../../utils/formatLastUpdatedText";
+import { formatDateAndTimeText } from "../../utils/formatLastUpdatedText";
 
 const StyledLocationText = styled.div`
-  font-size: larger;
+  font-size: 1.5rem;
   font-weight: 600;
 `;
 
@@ -27,12 +27,14 @@ interface LocationElementProps {
   city: string;
   country: string;
   lastUpdated: string;
+  localTime: string;
 }
 
 export const LocationText = ({
   city,
   country,
   lastUpdated,
+  localTime,
 }: LocationElementProps): ReactElement => {
   const { t } = useTranslation();
   const countryCode = getCountryCodeFromName(country);
@@ -51,7 +53,13 @@ export const LocationText = ({
         {t("currentWeather.lastUpdate")}{" "}
         {timeFormat === TimeFormat.TIME_24H
           ? lastUpdated
-          : formatLastUpdatedText(lastUpdated)}
+          : formatDateAndTimeText(lastUpdated)}
+      </StyledUpdateText>
+      <StyledUpdateText>
+        {t("currentWeather.localTime")}{" "}
+        {timeFormat === TimeFormat.TIME_24H
+          ? localTime
+          : formatDateAndTimeText(localTime)}
       </StyledUpdateText>
     </TextContainer>
   );

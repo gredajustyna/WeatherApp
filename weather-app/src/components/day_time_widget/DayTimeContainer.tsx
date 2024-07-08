@@ -8,7 +8,7 @@ import { DayTimeIndicator } from "./DayTimeIndicator";
 const StyledContainer = styled.div`
   border-radius: 12px;
   height: 20vh;
-  width: 42vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

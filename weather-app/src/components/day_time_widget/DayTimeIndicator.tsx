@@ -39,14 +39,19 @@ const calculateSunPosition = (
 };
 
 export const DayTimeIndicator = () => {
-  const { forecast } = useContext(WeatherContext);
+  const { forecast, weather } = useContext(WeatherContext);
   const { t } = useTranslation();
-  const currentTime = new Date();
+  const currentTime = new Date(weather.location.localtime);
   const hour = currentTime.getHours() + currentTime.getMinutes() / 60;
-  const sunriseHour = 4;
-  const sunsetHour = 21;
+  const sunriseHour = parseInt(
+    convertTo24HourFormat(forecast.sunrise).split(":")[0]
+  );
+  const sunsetHour = parseInt(
+    convertTo24HourFormat(forecast.sunset).split(":")[0]
+  );
   const { x, y } = calculateSunPosition(hour, sunriseHour, sunsetHour);
   const timeFormat = useSelector(timeFormatSelector);
+  console.log(x, y);
 
   return (
     <DayTimeIndicatorContainer>

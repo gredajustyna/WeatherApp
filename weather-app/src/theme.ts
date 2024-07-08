@@ -11,6 +11,7 @@ export const lightTheme = {
     text: "black",
     drawerText: "black",
     drawerBackground: "white",
+    searchResultHover: "#f5f5f5",
   },
 };
 
@@ -27,5 +28,6 @@ export const darkTheme = {
     text: "white",
     drawerText: "white",
     drawerBackground: "black",
+    searchResultHover: "#212121",
   },
 };

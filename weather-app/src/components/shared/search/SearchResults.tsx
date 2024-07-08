@@ -3,16 +3,15 @@ import styled from "styled-components";
 
 const ResultsContainer = styled.div`
   position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-54%);
+  top: 80px;
+  left: 16px;
   display: flex;
   flex-direction: column;
   width: 30vw;
   height: fit-content;
-  background-color: white;
   border-radius: 12px;
   z-index: 300;
+  background-color: ${({ theme }) => theme.colors.drawerBackground};
 `;
 
 interface SearchResultsProps {

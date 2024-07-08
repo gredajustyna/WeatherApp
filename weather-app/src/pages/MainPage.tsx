@@ -22,7 +22,8 @@ import { themeSelector } from "../store/settings/settings.selector";
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../theme";
 import background from "../assets/images/weather.jpg";
-import backgroundNight from "../assets/images/night_weather.jpeg";
+import backgroundNight from "../assets/images/night_weather_3.jpg";
+import { Divider } from "../components/shared/Divider";
 
 const ContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -34,6 +35,7 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transition: all 0.3s ease-in-out;
 `;
 
 export const WeatherContext = createContext<{
@@ -80,9 +82,12 @@ export const MainPage = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           marginTop: -16,
+          paddingTop: 16,
+          paddingBottom: 1,
           color: theme === "light" ? "black" : "white",
         }}
       >
+        {isSearching && <Overlay />}
         <WeatherContext.Provider value={{ weather, forecast }}>
           <ContentWrapper>
             <div
@@ -90,7 +95,7 @@ export const MainPage = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "30%",
+                width: "36%",
                 rowGap: "16px",
                 columnGap: "16px",
                 height: "100%",
@@ -108,6 +113,7 @@ export const MainPage = () => {
               <DayTimeContainer />
               <FeelsLikeContainer />
             </div>
+            <Divider />
             <div
               className="App"
               style={{
@@ -120,6 +126,13 @@ export const MainPage = () => {
                 justifyContent: "flex-start",
               }}
             >
+              {isSearching && (
+                <SearchResultsContainer
+                  searchResults={searchResults}
+                  setSearchResults={setSearchResults}
+                  setIsSearching={setIsSearching}
+                />
+              )}
               <ForecastContainer />
               <div
                 style={{
@@ -145,44 +158,6 @@ export const MainPage = () => {
                 <RainProbabilityContainer />
               </div>
             </div>
-
-            {/* <div className="App" style={{ rowGap: "16px", columnGap: "16px" }}>
-              {isSearching && <Overlay />}
-              {isSearching && (
-                <SearchResultsContainer
-                  searchResults={searchResults}
-                  setSearchResults={setSearchResults}
-                  setIsSearching={setIsSearching}
-                />
-              )}
-              <div style={{ display: "flex" }}>
-                <CurrentWeatherContainer /> 
-                <ForecastContainer />
-              </div>
-              <div
-                style={{
-                  marginTop: "20px",
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <UVIndexContainer />
-                <HumidityContainer />
-                <FeelsLikeContainer />
-                <MoonPhaseContainer />
-              </div>
-              <div
-                style={{
-                  marginTop: "20px",
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <DayTimeContainer />
-                <AirQualityContainer />
-                <RainProbabilityContainer />
-              </div>
-            </div> */}
           </ContentWrapper>
         </WeatherContext.Provider>
       </div>

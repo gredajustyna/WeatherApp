@@ -13,6 +13,7 @@ export const CurrentWeatherContainer = (): ReactElement => {
         city={weather.location.name}
         country={weather.location.country}
         lastUpdated={weather.lastUpdated}
+        localTime={weather.location.localtime}
       />
       <DegreesContainer
         temperature={weather.weather.degrees}

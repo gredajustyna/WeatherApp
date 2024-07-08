@@ -12,6 +12,7 @@ i18n.use(initReactI18next).init({
       translation: {
         currentWeather: {
           lastUpdate: "Last updated:",
+          localTime: "Local time:",
         },
         humidity: {
           humidity: "Humidity",
@@ -82,6 +83,7 @@ i18n.use(initReactI18next).init({
       translation: {
         currentWeather: {
           lastUpdate: "Ostatnia aktualizacja:",
+          localTime: "Czas lokalny:",
         },
         humidity: {
           humidity: "Wilgotność",

@@ -23,11 +23,15 @@ interface ContainerProps {
 export const Container = ({
   position,
   flexDirection = "column",
-  height,
+  height = "20%",
   children,
 }: ContainerProps): ReactElement => {
   return (
-    <StyledContainer position={position} flexDirection={flexDirection}>
+    <StyledContainer
+      position={position}
+      flexDirection={flexDirection}
+      height={height}
+    >
       {children}
     </StyledContainer>
   );

@@ -7,15 +7,12 @@ import { WeatherContext } from "../../pages/MainPage";
 const StyledContainer = styled.div`
   border-radius: 12px;
   position: relative;
-  height: 20vh;
+  height: 27vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 80px;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.background};
@@ -27,7 +24,7 @@ const StyledContainer = styled.div`
 const ChartContainer = styled.div`
   position: absolute;
   width: fit-content;
-  top: 20px;
+  top: 50px;
   left: 30px;
   z-index: 2;
 `;

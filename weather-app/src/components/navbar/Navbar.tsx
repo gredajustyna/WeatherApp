@@ -55,15 +55,17 @@ export const Navbar = ({
         <Input
           searchResults={searchResults}
           setSearchResults={setSearchResults}
+          isSearching={isSearching}
+          setIsSearching={setIsSearching}
         />
         <LocationButton />
-        <div>
+        {/* <div>
           {isSearching ? (
             <ClearButton onClick={handleClearButtonClick} />
           ) : (
             <SearchButton onClick={() => setIsSearching(true)} />
           )}
-        </div>
+        </div> */}
       </NavbarContainer>
       <Drawer
         open={isOpen}
