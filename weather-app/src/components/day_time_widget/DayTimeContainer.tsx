@@ -16,7 +16,7 @@ const StyledContainer = styled.div`
   margin-top: 100px + 20vh;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
+  background-color: ${({ theme }) => theme.colors.background};
   padding-left: 10px;
   padding-right: 10px;
 `;

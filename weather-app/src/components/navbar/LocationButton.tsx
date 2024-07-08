@@ -4,6 +4,7 @@ import { NavigationButton } from "../shared/NavigationButton";
 import { getQParameterFromPosition } from "../../utils/getQParameterFromPosition";
 import { useDispatch } from "react-redux";
 import { setLocation } from "../../store/settings/settings.actions";
+import { useTheme } from "styled-components";
 
 export const LocationButton = (): ReactElement => {
   const dispatch = useDispatch();
@@ -25,10 +26,16 @@ export const LocationButton = (): ReactElement => {
   function error() {
     console.log("Unable to retrieve your location");
   }
+  const theme = useTheme();
   return (
     <NavigationButton onClick={handleLocationClick}>
       <AiOutlineCompass
-        style={{ width: 40, height: 35, paddingRight: 10, cursor: "pointer" }}
+        style={{
+          width: 30,
+          height: 25,
+          cursor: "pointer",
+          color: theme.colors.iconDefault,
+        }}
       />
     </NavigationButton>
   );

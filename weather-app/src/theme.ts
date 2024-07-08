@@ -6,6 +6,11 @@ export const lightTheme = {
     calm_green: "#b4ceb3",
     light_pink: "#dbd3c9",
     dark_pink: "#fad4d8",
+    background: "rgba(0,0,0,0.1)",
+    iconDefault: "#000000",
+    text: "black",
+    drawerText: "black",
+    drawerBackground: "white",
   },
 };
 
@@ -17,5 +22,10 @@ export const darkTheme = {
     calm_green: "#7a8f7d",
     light_pink: "#a9a197",
     dark_pink: "#c7a0ab",
+    background: "rgba(0,0,0, 0.4)",
+    iconDefault: "white",
+    text: "white",
+    drawerText: "white",
+    drawerBackground: "black",
   },
 };

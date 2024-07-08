@@ -11,9 +11,12 @@ import { WeatherLocation } from "../../../types/Location";
 import { debounce } from "lodash";
 
 const StyledInput = styled.input`
-  width: 30vw;
+  width: 70%;
   height: 45px;
-  border-radius: 12px;
+  border-radius: 20px;
+  border-color: "transparent";
+  border-width: 0px;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 interface InputProps {
@@ -41,5 +44,5 @@ export const Input = ({
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     debouncedSearch(event.target.value);
   };
-  return <StyledInput onChange={handleInputChange} autoFocus />;
+  return <StyledInput onChange={handleInputChange} />;
 };

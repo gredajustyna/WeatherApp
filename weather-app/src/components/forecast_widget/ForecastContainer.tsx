@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
   border-radius: 12px;
   position: relative;
   height: 20vh;
-  width: 75vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   margin-top: 80px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
+  background-color: ${({ theme }) => theme.colors.background};
   padding-left: 10px;
   padding-right: 10px;
   overflow-x: auto;

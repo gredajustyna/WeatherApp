@@ -28,7 +28,7 @@ export const ResponsiveNumberContainer = ({
       fontSize: responsiveSize + "px",
       marginTop: "-20px",
       marginBottom: "-20px",
-      fontFamily: "skinny",
+      fontFamily: "capsuula",
     });
   };
 

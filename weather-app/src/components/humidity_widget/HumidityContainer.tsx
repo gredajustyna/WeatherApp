@@ -6,22 +6,8 @@ import { HumidityIndicator } from "./HumidityIndicator";
 import { useTranslation } from "react-i18next";
 import { WiHumidity } from "react-icons/wi";
 import { WeatherContext } from "../../pages/MainPage";
+import { Container } from "../shared/Container";
 
-const StyledContainer = styled.div`
-  border-radius: 12px;
-  height: 20vh;
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 100px + 20vh;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
-  padding-left: 10px;
-  padding-right: 10px;
-`;
 const ValueContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,7 +20,7 @@ export const HumidityContainer = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <StyledContainer>
+    <Container>
       <TitleComponent
         value={t("humidity.humidity")}
         icon={<WiHumidity style={{ width: "25px", height: "25px" }} />}
@@ -43,6 +29,6 @@ export const HumidityContainer = (): ReactElement => {
         <HumidityIndicator value={weather.weather.humidityPercentage} />
         <NumberContainer index={`${weather.weather.humidityPercentage}%`} />
       </ValueContainer>
-    </StyledContainer>
+    </Container>
   );
 };

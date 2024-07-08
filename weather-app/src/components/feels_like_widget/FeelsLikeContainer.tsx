@@ -11,22 +11,8 @@ import { FeelsLikeIndicator } from "./FeelsLikeIndicator";
 import { mapTemperatureDifferenceToLabelKey } from "../../utils/mapTemperatureDifferenceToLabelKey";
 import { getPercentageFromTemperatureDifference } from "../../utils/getPercentageFromTemperatureDifference";
 import { WeatherContext } from "../../pages/MainPage";
+import { Container } from "../shared/Container";
 
-const StyledContainer = styled.div`
-  border-radius: 12px;
-  height: 20vh;
-  width: 25vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 100px + 20vh;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
-  padding-left: 10px;
-  padding-right: 10px;
-`;
 const ValueContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -43,7 +29,7 @@ export const FeelsLikeContainer = (): ReactElement => {
   );
 
   return (
-    <StyledContainer>
+    <Container>
       <TitleComponent
         value={t("feelsLike.title")}
         icon={<WiThermometer style={{ width: "25px", height: "25px" }} />}
@@ -61,6 +47,6 @@ export const FeelsLikeContainer = (): ReactElement => {
           )}`
         )}
       />
-    </StyledContainer>
+    </Container>
   );
 };

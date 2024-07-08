@@ -1,5 +1,5 @@
 import { Dispatch, ReactElement, SetStateAction, useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { DrawerButton } from "./DrawerButton";
@@ -14,17 +14,13 @@ import { TimeFormatSettingRow } from "../drawer/TimeFormatSettingRow";
 import { ThemeSettingRow } from "../drawer/ThemeSettingRow";
 
 const NavbarContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.sky_blue};
-  height: 60px;
+  background-color: "transparent";
+  height: fit-content;
   width: 100%;
-  position: absolute;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 200;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-bottom: 16px;
 `;
 
 interface NavbarProps {
@@ -36,7 +32,6 @@ interface NavbarProps {
 }
 
 export const Navbar = ({
-  title,
   isSearching,
   setIsSearching,
   searchResults,
@@ -51,26 +46,23 @@ export const Navbar = ({
     setIsSearching(false);
     setSearchResults([]);
   };
+  const theme = useTheme();
 
   return (
     <>
       <NavbarContainer>
         <DrawerButton setIsOpen={setIsOpen} isOpen={isOpen} />
-        {isSearching ? (
-          <Input
-            searchResults={searchResults}
-            setSearchResults={setSearchResults}
-          />
-        ) : (
-          <h1 style={{ fontFamily: "skinny", fontSize: "60px" }}>{title}</h1>
-        )}
+        <Input
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />
+        <LocationButton />
         <div>
           {isSearching ? (
             <ClearButton onClick={handleClearButtonClick} />
           ) : (
             <SearchButton onClick={() => setIsSearching(true)} />
           )}
-          <LocationButton />
         </div>
       </NavbarContainer>
       <Drawer
@@ -78,9 +70,17 @@ export const Navbar = ({
         onClose={toggleDrawer}
         direction="left"
         size="350px"
-        style={{ paddingTop: "60px" }}
       >
-        <div style={{ gap: "50px" }}>
+        <div
+          style={{
+            gap: "50px",
+            color: theme.colors.drawerText,
+            paddingLeft: "16px",
+            paddingRight: "16px",
+            backgroundColor: theme.colors.drawerBackground,
+            height: " 100%",
+          }}
+        >
           <TimeFormatSettingRow />
           <TemperatureSettingRow />
           <ThemeSettingRow />

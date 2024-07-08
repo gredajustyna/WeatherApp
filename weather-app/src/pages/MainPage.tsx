@@ -19,8 +19,22 @@ import { AirQualityContainer } from "../components/air_quality_widget/AirQuality
 import { RainProbabilityContainer } from "../components/rain_probablilty_widget/RainProbabilityContainer";
 import { useSelector } from "react-redux";
 import { themeSelector } from "../store/settings/settings.selector";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../theme";
+import background from "../assets/images/weather.jpg";
+import backgroundNight from "../assets/images/night_weather.jpeg";
+
+const ContentWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.background};
+  width: 98%;
+  height: fit-content;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 export const WeatherContext = createContext<{
   weather: CurrentWeather;
@@ -47,15 +61,9 @@ export const MainPage = () => {
             height: "100vh",
             display: "flex",
             flexDirection: "column",
+            backgroundColor: "black",
           }}
         >
-          <Navbar
-            title="WeatherApp"
-            isSearching={isSearching}
-            setIsSearching={setIsSearching}
-            searchResults={searchResults}
-            setSearchResults={setSearchResults}
-          />
           <Loading />
         </div>
       </ThemeProvider>
@@ -63,52 +71,119 @@ export const MainPage = () => {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <div>
-        <Navbar
-          title="WeatherApp"
-          isSearching={isSearching}
-          setIsSearching={setIsSearching}
-          searchResults={searchResults}
-          setSearchResults={setSearchResults}
-        />
+      <div
+        style={{
+          backgroundImage:
+            theme === "light"
+              ? `url(${background})`
+              : `url(${backgroundNight})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          marginTop: -16,
+          color: theme === "light" ? "black" : "white",
+        }}
+      >
         <WeatherContext.Provider value={{ weather, forecast }}>
-          <div className="App">
-            {isSearching && <Overlay />}
-            {isSearching && (
-              <SearchResultsContainer
+          <ContentWrapper>
+            <div
+              className="App"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "30%",
+                rowGap: "16px",
+                columnGap: "16px",
+                height: "100%",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Navbar
+                title="WeatherApp"
+                isSearching={isSearching}
+                setIsSearching={setIsSearching}
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
-                setIsSearching={setIsSearching}
               />
-            )}
-            <div style={{ display: "flex" }}>
               <CurrentWeatherContainer />
-              <ForecastContainer />
-            </div>
-            <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <UVIndexContainer />
-              <HumidityContainer />
-              <FeelsLikeContainer />
-              <MoonPhaseContainer />
-            </div>
-            <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
               <DayTimeContainer />
-              <AirQualityContainer />
-              <RainProbabilityContainer />
+              <FeelsLikeContainer />
             </div>
-          </div>
+            <div
+              className="App"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "60%",
+                rowGap: "16px",
+                columnGap: "16px",
+                height: "100%",
+                justifyContent: "flex-start",
+              }}
+            >
+              <ForecastContainer />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "100%",
+                  gap: "16px",
+                }}
+              >
+                <UVIndexContainer />
+                <MoonPhaseContainer />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "100%",
+                  gap: "16px",
+                }}
+              >
+                <AirQualityContainer />
+                <HumidityContainer />
+                <RainProbabilityContainer />
+              </div>
+            </div>
+
+            {/* <div className="App" style={{ rowGap: "16px", columnGap: "16px" }}>
+              {isSearching && <Overlay />}
+              {isSearching && (
+                <SearchResultsContainer
+                  searchResults={searchResults}
+                  setSearchResults={setSearchResults}
+                  setIsSearching={setIsSearching}
+                />
+              )}
+              <div style={{ display: "flex" }}>
+                <CurrentWeatherContainer /> 
+                <ForecastContainer />
+              </div>
+              <div
+                style={{
+                  marginTop: "20px",
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <UVIndexContainer />
+                <HumidityContainer />
+                <FeelsLikeContainer />
+                <MoonPhaseContainer />
+              </div>
+              <div
+                style={{
+                  marginTop: "20px",
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <DayTimeContainer />
+                <AirQualityContainer />
+                <RainProbabilityContainer />
+              </div>
+            </div> */}
+          </ContentWrapper>
         </WeatherContext.Provider>
       </div>
     </ThemeProvider>

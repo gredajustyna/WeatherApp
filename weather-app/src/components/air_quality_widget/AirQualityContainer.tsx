@@ -7,22 +7,8 @@ import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { WeatherContext } from "../../pages/MainPage";
 import { getFaceIconFromEpaIndex } from "../../utils/getFaceIconFromEpaIndex";
 import { mapEpaIndexToLabelKey } from "../../utils/mapEpaIndexToLabelKey";
+import { Container } from "../shared/Container";
 
-const StyledContainer = styled.div`
-  border-radius: 12px;
-  height: 20vh;
-  width: 25vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 100px + 20vh;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
-  padding-left: 10px;
-  padding-right: 10px;
-`;
 const ValueContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,7 +20,7 @@ export const AirQualityContainer = () => {
   const { t } = useTranslation();
   const { weather } = useContext(WeatherContext);
   return (
-    <StyledContainer>
+    <Container>
       <TitleComponent
         value={t("airQuality.title")}
         icon={<WiFog style={{ width: "25px", height: "25px" }} />}
@@ -54,6 +40,6 @@ export const AirQualityContainer = () => {
           )}`
         )}
       />
-    </StyledContainer>
+    </Container>
   );
 };

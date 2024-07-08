@@ -6,22 +6,7 @@ import { WiMoonWaningCrescent3 } from "react-icons/wi";
 import { NumberContainer } from "../uv_index_widget/NumberContainer";
 import { getMoonIconFromMoonPhase } from "../../utils/getMoonIconFromMoonPhase";
 import { WeatherContext } from "../../pages/MainPage";
-
-const StyledContainer = styled.div`
-  border-radius: 12px;
-  height: 20vh;
-  width: 25vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 100px + 20vh;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.sky_blue};
-  padding-left: 10px;
-  padding-right: 10px;
-`;
+import { Container } from "../shared/Container";
 
 const ValueContainer = styled.div`
   display: flex;
@@ -35,7 +20,7 @@ export const MoonPhaseContainer = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <StyledContainer>
+    <Container>
       <TitleComponent
         value={t("moonPhase.title")}
         icon={
@@ -47,6 +32,6 @@ export const MoonPhaseContainer = (): ReactElement => {
         <NumberContainer index={`${weather.weather.humidityPercentage}%`} />
       </ValueContainer>
       <TitleComponent value={t(`moonPhase.phases.${forecast.moonPhase}`)} />
-    </StyledContainer>
+    </Container>
   );
 };

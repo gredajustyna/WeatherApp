@@ -2,3 +2,8 @@
   font-family: "skinny";
   src: url("./MySkinnyType.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "capsuula";
+  src: url("./Capsuula.ttf") format("truetype");
+}

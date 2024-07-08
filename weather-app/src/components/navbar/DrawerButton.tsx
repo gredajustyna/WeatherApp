@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { DrawerOpenProps } from "../../types/DrawerOpenProps";
 
 const StyledButton = styled.button`
@@ -8,18 +8,21 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 4px;
+  border: none;
   width: 60;
   height: 40;
 `;
 
 export const DrawerButton = ({ setIsOpen }: DrawerOpenProps): ReactElement => {
+  const theme = useTheme();
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
     <StyledButton onClick={toggleDrawer}>
-      <AiOutlineMenu style={{ width: 40, height: 35 }} />
+      <AiOutlineMenu
+        style={{ width: 30, height: 25, color: theme.colors.iconDefault }}
+      />
     </StyledButton>
   );
 };
