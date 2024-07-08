@@ -1,18 +1,14 @@
 import React, { ReactElement } from "react";
-import { useTheme } from "styled-components";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  width: 3px;
+  height: 90vh;
+  border-radius: 16px;
+  background-color: ${({ theme }) => theme.colors.background};
+  display: flex;
+`;
 
 export const Divider = (): ReactElement => {
-  const theme = useTheme();
-  return (
-    <div
-      style={{
-        width: "3px",
-        height: "100%",
-        borderRadius: "16px",
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      {" "}
-    </div>
-  );
+  return <StyledContainer />;
 };

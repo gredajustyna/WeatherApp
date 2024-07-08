@@ -12,8 +12,6 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 100px + 20vh;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.background};

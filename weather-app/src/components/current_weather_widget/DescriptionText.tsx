@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 
 const StyledText = styled.div`
-  font-size: larger;
+  font-size: 1.5rem;
   font-weight: 600;
 `;
 

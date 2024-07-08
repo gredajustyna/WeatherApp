@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ResultsContainer = styled.div`
   position: absolute;
-  top: 80px;
-  left: 16px;
+  top: 90px;
+  left: 60px;
   display: flex;
   flex-direction: column;
   width: 30vw;

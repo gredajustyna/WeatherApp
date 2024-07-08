@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 import { themeSelector } from "../store/settings/settings.selector";
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../theme";
-import background from "../assets/images/weather.jpg";
+import background from "../assets/images/weather3.jpg";
 import backgroundNight from "../assets/images/night_weather_3.jpg";
 import { Divider } from "../components/shared/Divider";
 
@@ -50,11 +50,11 @@ export const MainPage = () => {
   );
   const { weather, loading } = useWeatherData();
   const { forecast, loading: forecastLoading } = useForecastData();
-  const theme = useSelector(themeSelector);
+  const appTheme = useSelector(themeSelector);
 
   if (!weather || !forecast || loading || forecastLoading)
     return (
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={appTheme === "light" ? lightTheme : darkTheme}>
         <div
           style={{
             justifyContent: "center",
@@ -63,7 +63,7 @@ export const MainPage = () => {
             height: "100vh",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "black",
+            backgroundColor: appTheme === "light" ? "white" : "black",
           }}
         >
           <Loading />
@@ -72,11 +72,11 @@ export const MainPage = () => {
     );
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={appTheme === "light" ? lightTheme : darkTheme}>
       <div
         style={{
           backgroundImage:
-            theme === "light"
+            appTheme === "light"
               ? `url(${background})`
               : `url(${backgroundNight})`,
           backgroundSize: "cover",
@@ -84,7 +84,7 @@ export const MainPage = () => {
           marginTop: -16,
           paddingTop: 16,
           paddingBottom: 1,
-          color: theme === "light" ? "black" : "white",
+          color: appTheme === "light" ? "black" : "white",
         }}
       >
         {isSearching && <Overlay />}
@@ -100,6 +100,7 @@ export const MainPage = () => {
                 columnGap: "16px",
                 height: "100%",
                 justifyContent: "flex-start",
+                paddingLeft: "16px",
               }}
             >
               <Navbar

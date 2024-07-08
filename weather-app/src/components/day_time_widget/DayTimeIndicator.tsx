@@ -17,9 +17,9 @@ const SunriseSunsetContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 36vw;
-  margin-left: 2vw;
   margin-top: 4px;
+  padding-right: 2vw;
+  padding-left: 2vw;
 `;
 
 const calculateSunPosition = (
@@ -55,7 +55,7 @@ export const DayTimeIndicator = () => {
 
   return (
     <DayTimeIndicatorContainer>
-      <svg width="39vw" height="10vw" viewBox="0 0 200 50">
+      <svg width="100%" height="10vw" viewBox="0 0 200 50">
         <path
           id="sun-path"
           d={`M 10 100 A 90 90 0 0 1 190 100`}
@@ -67,7 +67,7 @@ export const DayTimeIndicator = () => {
         <image
           xlinkHref={sunImage}
           x={x - 10}
-          y={y - 10}
+          y={y - 15}
           height="20px"
           width="20px"
         >

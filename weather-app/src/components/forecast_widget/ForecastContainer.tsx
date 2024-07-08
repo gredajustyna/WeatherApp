@@ -16,8 +16,6 @@ const StyledContainer = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.background};
-  padding-left: 10px;
-  padding-right: 10px;
   overflow-x: auto;
 `;
 

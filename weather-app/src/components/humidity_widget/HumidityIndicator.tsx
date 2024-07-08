@@ -1,5 +1,16 @@
 import { ReactElement } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const waveAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(1%);
+    background-position: 0% 100%;
+  }
+  50% {
+    transform: translateY(-2%);
+    background-position: 50% 50%;
+  }
+`;
 
 const StyledContainer = styled.div`
   position: relative;
@@ -14,6 +25,7 @@ const WaterValue = styled.div<HumidityIndicatorProps>`
   border-bottom-left-radius: 10px;
   height: ${({ value }) => (value / 100) * 15}vh;
   background: linear-gradient(to top, #2326bb, #73c8db, #ffffff);
+  animation: ${waveAnimation} 4s ease-in-out infinite;
   z-index: 2;
   width: 100%;
   bottom: 0;

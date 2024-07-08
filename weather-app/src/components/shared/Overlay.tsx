@@ -10,5 +10,5 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 250;
+  z-index: 25;
 `;

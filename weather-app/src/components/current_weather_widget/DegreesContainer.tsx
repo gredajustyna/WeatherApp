@@ -10,7 +10,6 @@ const StyledContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
   margin-left: 20px;
   margin-right: 20px;
   padding-left: 20px;
@@ -31,7 +30,7 @@ export const DegreesContainer = ({
   const temperatureScale = useSelector(temperatureScaleSelector);
   return (
     <StyledContainer>
-      <img src={icon} alt={alt} height={60} width={60}></img>
+      <img src={icon} alt={alt} height={100} width={100}></img>
       <ResponsiveNumberContainer
         value={formatDegrees(temperature, temperatureScale)}
       />

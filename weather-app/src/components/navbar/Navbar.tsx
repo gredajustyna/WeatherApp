@@ -6,8 +6,6 @@ import { DrawerButton } from "./DrawerButton";
 import { LocationButton } from "./LocationButton";
 import { TemperatureSettingRow } from "../drawer/TemperatureSettingRow";
 import { LanguageSettingRow } from "../drawer/LanguageSettingRow";
-import { SearchButton } from "./search/SearchButton";
-import { ClearButton } from "./search/ClearButton";
 import { Input } from "./search/Input";
 import { WeatherLocation } from "../../types/Location";
 import { TimeFormatSettingRow } from "../drawer/TimeFormatSettingRow";
@@ -41,11 +39,6 @@ export const Navbar = ({
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
-
-  const handleClearButtonClick = (): void => {
-    setIsSearching(false);
-    setSearchResults([]);
-  };
   const theme = useTheme();
 
   return (
@@ -59,13 +52,6 @@ export const Navbar = ({
           setIsSearching={setIsSearching}
         />
         <LocationButton />
-        {/* <div>
-          {isSearching ? (
-            <ClearButton onClick={handleClearButtonClick} />
-          ) : (
-            <SearchButton onClick={() => setIsSearching(true)} />
-          )}
-        </div> */}
       </NavbarContainer>
       <Drawer
         open={isOpen}
