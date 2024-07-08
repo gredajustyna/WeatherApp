@@ -13,6 +13,7 @@ const ValueContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 25px;
 `;
 
 export const HumidityContainer = (): ReactElement => {

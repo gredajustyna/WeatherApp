@@ -13,8 +13,8 @@ export const ClearButton = ({ onClick }: ClearButtonProps): ReactElement => {
     <NavigationButton onClick={onClick}>
       <AiOutlineClose
         style={{
-          width: 40,
-          height: 35,
+          width: 30,
+          height: 25,
           paddingRight: 10,
           cursor: "pointer",
           color: theme.colors.iconDefault,

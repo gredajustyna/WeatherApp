@@ -7,7 +7,7 @@ export const lightTheme = {
     light_pink: "#dbd3c9",
     dark_pink: "#fad4d8",
     background: "rgba(0,0,0,0.1)",
-    iconDefault: "#000000",
+    iconDefault: "#8c8c8c",
     text: "black",
     drawerText: "black",
     drawerBackground: "white",
