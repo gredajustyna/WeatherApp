@@ -17,6 +17,20 @@ const StyledContainer = styled.div`
   padding-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.background};
   overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.background};
+    border-radius: 10px;
+  }
 `;
 
 const ChartContainer = styled.div`

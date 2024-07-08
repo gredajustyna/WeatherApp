@@ -29,6 +29,7 @@ export const HumidityContainer = (): ReactElement => {
         <HumidityIndicator value={weather.weather.humidityPercentage} />
         <NumberContainer index={`${weather.weather.humidityPercentage}%`} />
       </ValueContainer>
+      <div />
     </Container>
   );
 };

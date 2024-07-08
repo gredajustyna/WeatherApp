@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { TitleComponent } from "../shared/TitleComponent";
 import { useTranslation } from "react-i18next";
 import Toggle from "react-toggle";
 import { themeSelector } from "../../store/settings/settings.selector";
@@ -25,6 +24,19 @@ const ThemeSettingContainer = styled.div`
   }
 `;
 
+const Title = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
+
 export const ThemeSettingRow = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -33,7 +45,9 @@ export const ThemeSettingRow = () => {
 
   return (
     <ThemeSettingContainer>
-      <TitleComponent value={t("drawer.theme.theme")} />
+      <TitleContainer>
+        <Title>{t("drawer.theme.theme")}</Title>
+      </TitleContainer>
       <div
         style={{
           alignItems: "center",

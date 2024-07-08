@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { temperatureScaleSelector } from "../../store/settings/settings.selector";
 import { Degrees } from "../../types/enums/Degrees";
 import { setTemperatureScale } from "../../store/settings/settings.actions";
-import { TitleComponent } from "../shared/TitleComponent";
 import { t } from "i18next";
 
 const TemperatureSettingContainer = styled.div`
@@ -27,6 +26,19 @@ const TemperatureSettingContainer = styled.div`
   }
 `;
 
+const Title = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
+
 export const TemperatureSettingRow = (): ReactElement => {
   const temperatureScale = useSelector(temperatureScaleSelector);
   const theme = useTheme();
@@ -34,7 +46,9 @@ export const TemperatureSettingRow = (): ReactElement => {
 
   return (
     <TemperatureSettingContainer>
-      <TitleComponent value={t("drawer.temperatureScale")} />
+      <TitleContainer>
+        <Title>{t("drawer.temperatureScale")}</Title>
+      </TitleContainer>
       <div
         style={{
           alignItems: "center",

@@ -27,6 +27,7 @@ export const RainProbabilityContainer = () => {
         <WiRain style={{ width: "10vh", height: "10vh" }} />
         <NumberContainer index={`${forecast.chanceOfRain}%`} />
       </ValueContainer>
+      <TitleComponent value={" "} />
     </Container>
   );
 };

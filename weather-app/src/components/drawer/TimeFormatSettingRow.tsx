@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import styled, { useTheme } from "styled-components";
-import { TitleComponent } from "../shared/TitleComponent";
 import Toggle from "react-toggle";
 import { useDispatch, useSelector } from "react-redux";
 import { timeFormatSelector } from "../../store/settings/settings.selector";
@@ -26,13 +25,28 @@ const TimeFormatSettingContainer = styled.div`
   }
 `;
 
+const Title = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
+
 export const TimeFormatSettingRow = (): ReactElement => {
   const timeFormat = useSelector(timeFormatSelector);
   const theme = useTheme();
   const dispatch = useDispatch();
   return (
     <TimeFormatSettingContainer>
-      <TitleComponent value={t("drawer.timeFormat")} />
+      <TitleContainer>
+        <Title>{t("drawer.timeFormat")}</Title>
+      </TitleContainer>
       <div
         style={{
           alignItems: "center",

@@ -1,6 +1,5 @@
 import { ReactElement, useState } from "react";
 import styled from "styled-components";
-import { TitleComponent } from "../shared/TitleComponent";
 import { Language } from "../../types/enums/Language";
 import { Dropdown } from "../shared/dropdown/Dropdown";
 import DropdownItem from "../shared/dropdown/DropdownItem";
@@ -21,6 +20,19 @@ const LanguageSettingContainer = styled.div`
   margin-top: 20px;
 `;
 
+const Title = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
+
 export const LanguageSettingRow = (): ReactElement => {
   const selectedLanguage = useSelector(languageSelector);
   const dispatch = useDispatch();
@@ -34,7 +46,9 @@ export const LanguageSettingRow = (): ReactElement => {
 
   return (
     <LanguageSettingContainer>
-      <TitleComponent value={t("drawer.language")} />
+      <TitleContainer>
+        <Title>{t("drawer.language")}</Title>
+      </TitleContainer>
       <Dropdown
         value={selectedLanguage}
         children={
