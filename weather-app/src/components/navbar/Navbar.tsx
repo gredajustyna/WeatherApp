@@ -70,6 +70,7 @@ export const Navbar = ({
         onClose={toggleDrawer}
         direction="left"
         size="350px"
+        style={{ backgroundColor: theme.colors.drawerBackground }}
       >
         <div
           style={{
@@ -77,8 +78,6 @@ export const Navbar = ({
             color: theme.colors.drawerText,
             paddingLeft: "16px",
             paddingRight: "16px",
-            backgroundColor: theme.colors.drawerBackground,
-            height: " 100%",
           }}
         >
           <TimeFormatSettingRow />
