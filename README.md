@@ -30,5 +30,9 @@ Fetching current localization and the forecast for it:
 
 ## How to run
 * Clone the repository
+* The WeatherAPI requires an API key to process the requests. [Sign up](https://www.weatherapi.com/signup.aspx) to receive the key, then copy it, create a `.env` file in the `weather-app` folder and paste the following code:
+```
+REACT_APP_API_KEY = <your api key>
+ ```
 * `cd weather-app`
 * `yarn` and `yarn start`
