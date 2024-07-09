@@ -85,6 +85,7 @@ export const MainPage = () => {
           paddingTop: 16,
           paddingBottom: 1,
           color: appTheme === "light" ? "black" : "white",
+          paddingRight: 16,
         }}
       >
         {isSearching && <Overlay />}
