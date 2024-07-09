@@ -1,7 +1,6 @@
 export const mapTemperatureDifferenceToLabelKey = (
   difference: number
 ): string => {
-  console.log(difference);
   switch (difference) {
     case 20:
       return "veryLow";

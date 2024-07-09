@@ -20,7 +20,6 @@ export const getWeatherForecast = async (
     );
 
     const json = await response.json();
-    console.log(json);
     const forecast: Forecast = {
       futureWeather: [
         ...json.forecast.forecastday[0].hour.map(
@@ -64,7 +63,6 @@ export const getWeatherForecast = async (
       chanceOfRain: json.forecast.forecastday[0].day.daily_chance_of_rain,
     };
 
-    console.log(forecast);
     return forecast;
   } catch (error) {
     console.error(error);

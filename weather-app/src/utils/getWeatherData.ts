@@ -22,7 +22,6 @@ export const getWeatherData = async (
     );
 
     const json = await response.json();
-    console.log(json);
     const currentWeather: CurrentWeather = {
       weather: {
         degrees:
@@ -45,7 +44,6 @@ export const getWeatherData = async (
       },
     };
 
-    console.log(currentWeather);
     return currentWeather;
   } catch (error) {
     console.error(error);
