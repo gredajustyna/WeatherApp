@@ -51,7 +51,6 @@ export const DayTimeIndicator = () => {
   );
   const { x, y } = calculateSunPosition(hour, sunriseHour, sunsetHour);
   const timeFormat = useSelector(timeFormatSelector);
-  console.log(x, y);
 
   return (
     <DayTimeIndicatorContainer>
