@@ -3,7 +3,6 @@ import {
   Dispatch,
   ReactElement,
   SetStateAction,
-  useCallback,
   useRef,
 } from "react";
 import styled from "styled-components";
@@ -20,14 +19,15 @@ const InputContainer = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: calc(100% - 40px); // Zostawia miejsce na przycisk
+  width: calc(100% - 40px);
   height: 45px;
   border-radius: 20px;
   border: none;
   background-color: ${({ theme }) => theme.colors.background};
-  padding-right: 40px; // Ustalenie paddingu po prawej stronie dla przycisku
+  padding-right: 40px;
   color: white;
   font-family: "capsuula";
+  font-size: larger;
 `;
 
 const PositionedButton = styled(ClearButton)`
@@ -56,17 +56,14 @@ export const Input = ({
   setIsSearching,
 }: InputProps): ReactElement => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const debouncedSearch = useCallback(
-    debounce(async (inputValue) => {
-      if (inputValue.trim() === "") {
-        setSearchResults([]);
-      } else {
-        const results = await getSearchData(inputValue);
-        setSearchResults(results);
-      }
-    }, 300),
-    []
-  );
+  const debouncedSearch = debounce(async (inputValue) => {
+    if (inputValue.trim() === "") {
+      setSearchResults([]);
+    } else {
+      const results = await getSearchData(inputValue);
+      setSearchResults(results);
+    }
+  }, 300);
 
   const handleClearButtonClick = (): void => {
     setIsSearching(false);
@@ -85,7 +82,6 @@ export const Input = ({
       <StyledInput
         onChange={handleInputChange}
         onFocus={() => setIsSearching(true)}
-        onBlur={handleClearButtonClick}
         ref={inputRef}
       />
       {isSearching && <PositionedButton onClick={handleClearButtonClick} />}
